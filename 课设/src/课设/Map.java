@@ -8,5 +8,5 @@ public class Map {
 	int x;
 	int y;
 	
-	Image img = new ImageIcon(this.getClass().getResource("./map1.png")).getImage();
+	Image img = new ImageIcon(this.getClass().getResource("./Map1.png")).getImage();
 }

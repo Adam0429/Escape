@@ -50,7 +50,7 @@ public class MainFrame extends JPanel  {
 	}
 	public void paint(Graphics g) {  	
 		g.drawImage(m.img,1,1,this);
-		g.drawImage(h.img,h.x,h.y,50,50,this);
+		g.drawImage(h.img,h.x,h.y,150,150,this);
 		g.setColor(Color.BLUE);
 		g.setFont(new Font("»ªÎÄ²ÊÔÆ", Font.BOLD, 25));
 		g.drawString("¶ÅÍþ", 50, 50);
@@ -64,6 +64,7 @@ public class MainFrame extends JPanel  {
 			     h.left=true;	
 			 }
 			 if(e.getKeyCode() == KeyEvent.VK_SPACE) {  
+				 h.down=false;
 				 h.up=true;
 			 }
 		}
@@ -79,6 +80,7 @@ public class MainFrame extends JPanel  {
 			}
 			if(e.getKeyCode() == KeyEvent.VK_SPACE) {  
 				h.up=false;
+				h.down=true;
 			}	 
 		}
 		public void keyTyped(KeyEvent e) {

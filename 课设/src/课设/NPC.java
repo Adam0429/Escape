@@ -8,5 +8,5 @@ public abstract class NPC {
 	Image img1;//放在地图上图
 	Image img2;//触发之后的图
 	boolean uesd;
-	public abstract boolean function();
+	public abstract void function();
 }

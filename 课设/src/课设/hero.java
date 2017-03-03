@@ -7,12 +7,15 @@ import javax.swing.ImageIcon;
 
 public class hero extends Thread{
 	int x=0;
-	int y=250;
+	int y=350;							
+	Image img;
 	int speed=3;
 	int jumpspeed=1;
-	boolean jumpFlag=true;
-	int money;
-	Image img;
+	int downspeed=2;
+	int floorhigh=y;					//地面的坐标
+	int jumphigh=300;					//跳跃的最大高度
+	boolean jumpFlag=false;				//是否达到跳跃顶点
+	int money;  
 	Bag bag=new Bag();
 	int width;
 	int height;
@@ -30,24 +33,36 @@ public class hero extends Thread{
     public void run(){ 
     	while(true){
     	if(left){
+    		if(hit("left")){
+    			this.speed=0;
+    		}
     		this.x=this.x-speed;
     	}
     	if(right){
     		this.x=this.x+speed;
     	}
-    	if(up){  
-    		 new Thread(){  
-                 public void run(){  
-                     jump();  
-                 }  
-             }.start();  
+    	if(up){
+    		if(!jumpFlag){
+    		new Thread(){  
+                public void run(){  
+                    jump();  
+                }  
+            }.start();  
+    		}
+    	}
+    	if(down){
+   		new Thread(){  
+                public void run(){  
+                    drop();  
+                }  
+            }.start();  
         }  
         try {  
             this.sleep(20);  
             } catch (InterruptedException e) {  
             e.printStackTrace();  
         }  
-    }
+    	}
     }	
     void step(){
     	Random r=new Random();
@@ -59,14 +74,37 @@ public class hero extends Thread{
 	}
     
 	void jump(){
-	        for (int i = 0; i <3 ; i++) {  
-	           y-=this.jumpspeed;  
-	           try {  
-	                Thread.sleep(5);  
-	           } catch (InterruptedException e) {  
-	                e.printStackTrace();  
-	           }  
+		for (int i = 0; i <3 ; i++) {  
+			y-=this.jumpspeed;
+			if(y<=jumphigh){
+				jumpFlag=true;
+				up=false;
+			}
+				try {  
+	        	Thread.sleep(5);  
+	        } catch (InterruptedException e) {  
+	        	e.printStackTrace();  
 	        }  
+	    }  
+	}
+	
+	void drop(){
+		for (int i = 0; i <3 ; i++) {  
+			y+=this.downspeed;  
+			if(y>jumphigh)
+				jumpFlag=false;    
+			if(y>=floorhigh)
+				down=false;
+	        try {  
+	        	Thread.sleep(5);  
+	        } catch (InterruptedException e) {  
+	        	e.printStackTrace();  
+	        }  
+	    }  
+	}
+	boolean hit(String dir){
+		Rectangle 
+		return ;
 	}
 }
 
