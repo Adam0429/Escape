@@ -1,6 +1,7 @@
 package øŒ…Ë;
 
 import java.awt.Image;
+import java.awt.Rectangle;
 import java.util.Random;
 
 import javax.swing.ImageIcon;
@@ -103,8 +104,8 @@ public class hero extends Thread{
 	    }  
 	}
 	boolean hit(String dir){
-		Rectangle 
-		return ;
+		Rectangle r=new Rectangle();
+		return false;
 	}
 }
 

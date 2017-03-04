@@ -1,0 +1,15 @@
+package øŒ…Ë;
+
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+
+public class MapStart extends Map{
+	JButton jb;
+	public MapStart(){
+		x=0;
+		y=0;
+		height=720;
+		width=1200;
+		image=new ImageIcon(this.getClass().getResource("./MapStart.png")).getImage();
+	}
+}
