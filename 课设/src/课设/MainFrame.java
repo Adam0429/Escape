@@ -1,6 +1,9 @@
 package 课设;
 
+import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Image;
@@ -19,9 +22,11 @@ public class MainFrame extends JPanel  {
 	public static JFrame frame=new JFrame();
 	public static MainFrame mf=new MainFrame();
 	public static hero h=new hero();
-	public static MyListener mk=new MyListener(mf,h);
-	public static Map mapStart=new MapStart();
-	public static Map map1303=new Map1303();
+	public static MyKeyListener mk=new MyKeyListener(mf,h);
+	public static MyMouseListener mm=new MyMouseListener();
+	public static Map mapStart=new MapStart(mf,h);
+	public static Map map1303=new Map1303(mf,h);
+	public static Map mapCorridor1=new MapCorridor1(mf,h);
 	public static Map mapIntroduce=new MapIntroduce();
 	public static final boolean isOver=false;
 	public static Map Current=mapStart;
@@ -30,9 +35,10 @@ public class MainFrame extends JPanel  {
 		h.start();
 		frame.setTitle("威哥开房记");
 		frame.setSize(1200, 750);
-		frame.getContentPane().add(mf);	
+		frame.getContentPane().add(mf);
 		//frame.getContentPane().setLayout(null);//设置框架布局模式为空，只有这样，才能知道图片的真正位置  
 		frame.addKeyListener(mk);
+		frame.addMouseListener(mm);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);  
         frame.setLocationRelativeTo(null); 
 		frame.setVisible(true);	
@@ -50,6 +56,13 @@ public class MainFrame extends JPanel  {
 			g.drawImage(Current.image,Current.x,Current.y,Current.width,Current.height,this);	
 		}
 		else if(Current==map1303){
+			g.drawImage(Current.image,Current.x,Current.y,Current.width,Current.height,this);
+			g.drawImage(h.img,h.x,h.y,150,150,this);
+			g.setColor(Color.BLUE);
+			g.setFont(new Font("华文彩云", Font.BOLD, 25));
+			g.drawString("杜威", 50, 50);
+		}
+		else if(Current==mapCorridor1){
 			g.drawImage(Current.image,Current.x,Current.y,Current.width,Current.height,this);
 			g.drawImage(h.img,h.x,h.y,150,150,this);
 			g.setColor(Color.BLUE);

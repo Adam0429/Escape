@@ -12,9 +12,9 @@ public class hero extends Thread{
 	Image img;
 	int speed=3;
 	int jumpspeed=1;
-	int downspeed=2;
+	int downspeed=2;				
 	int floorhigh=y;					//地面的坐标
-	int jumphigh=300;					//跳跃的最大高度
+	int jumphigh=300;					//跳跃到的最大坐标
 	boolean jumpFlag=false;				//是否达到跳跃顶点
 	int money;  
 	Bag bag=new Bag();
@@ -75,7 +75,7 @@ public class hero extends Thread{
 	}
     
 	void jump(){
-		for (int i = 0; i <3 ; i++) {  
+		for (int i = 0; i <3 ; i++) {  			
 			y-=this.jumpspeed;
 			if(y<=jumphigh){
 				jumpFlag=true;

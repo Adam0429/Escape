@@ -4,10 +4,10 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
 public class MyKeyListener implements KeyListener{
-	MainFrame frame;
+	MainFrame mf;
 	hero h;
 	public MyKeyListener(MainFrame Frame,hero h1){
-		frame=Frame;
+		mf=Frame;
 		h=MainFrame.h;
 	}
 	public void keyPressed(KeyEvent e) {
@@ -22,19 +22,20 @@ public class MyKeyListener implements KeyListener{
 			 h.up=true;
 		 }
 		 if(e.getKeyCode() == KeyEvent.VK_ENTER) {  	
-			 frame.Current=frame.map1303;
+			 mf.Current=mf.map1303;
 		 }
-		 if(e.getKeyCode() == KeyEvent.VK_E) {  				
-			 if(Trigger.enter(h))
-			 	 frame.Current=frame.mapStart;
+		 if(e.getKeyCode() == KeyEvent.VK_E) {  
+			 Trigger t=new Trigger(mf);
+			 if(t.enter(h))
+			 	 mf.Current=mf.mapCorridor1;
 		 }
 	}
 	public void keyReleased(KeyEvent e) {
 		if(e.getKeyCode() == KeyEvent.VK_RIGHT) {  
-			 h.right=false;	
-			 /*用这种写法会比用之前的写法手感好.原来的只有按下去一段时间才会走，猜想是多线程的缘故
-			  用多线程提高了人物的灵敏度。
-			  */
+			h.right=false;	
+			/*用这种写法会比用之前的写法手感好.原来的只有按下去一段时间才会走，猜想是多线程的缘故
+			 用多线程提高了人物的灵敏度。
+			 */
 		}
 		if(e.getKeyCode() == KeyEvent.VK_LEFT) {  
 			h.left=false;	
