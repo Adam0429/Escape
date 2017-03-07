@@ -27,7 +27,7 @@ public class MyKeyListener implements KeyListener{
 		 if(e.getKeyCode() == KeyEvent.VK_E) {  
 			 Trigger t=new Trigger(mf);
 			 if(t.enter(h))
-			 	 mf.Current=mf.mapCorridor1;
+			 	 System.out.println("½øÃÅ");
 		 }
 	}
 	public void keyReleased(KeyEvent e) {

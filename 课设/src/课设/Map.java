@@ -12,6 +12,6 @@ public class Map {
 	int height;
 	int width;
 	Image image;
-	static Rectangle[] door=new Rectangle[3];//门作为一个事件的触发区域,一个地图最多有3个门，每个子类里至少定义一个，不然会抛出空指针异常
-	static Map[] destination=new Map[3]; //至多3个目的地
+	Rectangle[] door=new Rectangle[3];//门作为一个事件的触发区域,一个地图最多有3个门，每个子类里至少定义一个，不然会抛出空指针异常
+	Map[] destination=new Map[3]; //至多3个目的地
 }

@@ -27,10 +27,10 @@ public class MainFrame extends JPanel  {
 	public static Map mapStart=new MapStart(mf,h);
 	public static Map map1303=new Map1303(mf,h);
 	public static Map mapCorridor1=new MapCorridor1(mf,h);
+	public static Map mapCorridor2=new MapCorridor2(mf,h);
 	public static Map mapIntroduce=new MapIntroduce();
-	public static final boolean isOver=false;
+	public static boolean isOver=false;
 	public static Map Current=mapStart;
-	public static int q;
 	public static void main(String[] Args){
 		h.start();
 		frame.setTitle("Íþ¸ç¿ª·¿¼Ç");
@@ -60,14 +60,21 @@ public class MainFrame extends JPanel  {
 			g.drawImage(h.img,h.x,h.y,150,150,this);
 			g.setColor(Color.BLUE);
 			g.setFont(new Font("»ªÎÄ²ÊÔÆ", Font.BOLD, 25));
-			g.drawString("¶ÅÍþ", 50, 50);
+			g.drawString("¶ÅÍþ"+Current, 50, 50);
 		}
 		else if(Current==mapCorridor1){
 			g.drawImage(Current.image,Current.x,Current.y,Current.width,Current.height,this);
 			g.drawImage(h.img,h.x,h.y,150,150,this);
 			g.setColor(Color.BLUE);
 			g.setFont(new Font("»ªÎÄ²ÊÔÆ", Font.BOLD, 25));
-			g.drawString("¶ÅÍþ", 50, 50);
+			g.drawString("¶ÅÍþ"+Current, 50, 50);
+		}
+		else if(Current==mapCorridor2){
+			g.drawImage(Current.image,Current.x,Current.y,Current.width,Current.height,this);
+			g.drawImage(h.img,h.x,h.y,150,150,this);
+			g.setColor(Color.BLUE);
+			g.setFont(new Font("»ªÎÄ²ÊÔÆ", Font.BOLD, 25));
+			g.drawString("¶ÅÍþ"+Current, 50, 50);
 		}
 	}	
 
