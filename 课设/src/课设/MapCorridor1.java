@@ -16,9 +16,9 @@ public class MapCorridor1 extends Map{
 		door[0]=new Rectangle(918,347,257,121);				
 		door[1]=new Rectangle(900,60,150,471);
 		door[2]=new Rectangle(900,60,150,471);
-		destination[0]=mf.map1303;
-		destination[1]=mf.map1303;
-		destination[2]=mf.map1303;
+		destination[0]=MapSet.map1303;
+		destination[1]=MapSet.map1303;
+		destination[2]=MapSet.map1303;
 	}
 }
 

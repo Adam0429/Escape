@@ -21,19 +21,22 @@ public class MainFrame extends JPanel  {
 	//有个问题：打包成jar后，eclipse下可以显示的图片，jar无法显示，应该是图片路径的问题
 	public static JFrame frame=new JFrame();
 	public static MainFrame mf=new MainFrame();
-	public static hero h=new hero();
-	public static MyKeyListener mk=new MyKeyListener(mf,h);
-	public static MyMouseListener mm=new MyMouseListener();
+	public static hero h=new hero();	
 	public static Map mapStart=new MapStart(mf,h);
+	public static Map Current=mapStart;
 	public static Map map1303=new Map1303(mf,h);
+	/*本想在每个map里给destination传入mf已经实例化的map,但发现这些地图相互连接，无论谁都无法先定义。这种方法会造成空指针异常。
+	 * 后来把destination=mf.map1303改成destination=new Map1303(mf,h)发现他们会不停地调用自己，因为每个map1303都要新new一个
+	 * map1303,最后溢出,由此排出这种方法.后来只能新建一个类专门用来new每个map,然后把map的对象传到destination里面.*/
 	public static Map mapCorridor1=new MapCorridor1(mf,h);
 	public static Map mapCorridor2=new MapCorridor2(mf,h);
 	public static Map mapIntroduce=new MapIntroduce();
 	public static boolean isOver=false;
-	public static Map Current=mapStart;
+	public static MyKeyListener mk=new MyKeyListener(mf,h);
+	public static MyMouseListener mm=new MyMouseListener();
 	public static void main(String[] Args){
 		h.start();
-		frame.setTitle("威哥开房记");
+		frame.setTitle("Escape");
 		frame.setSize(1200, 750);
 		frame.getContentPane().add(mf);
 		//frame.getContentPane().setLayout(null);//设置框架布局模式为空，只有这样，才能知道图片的真正位置  
@@ -51,7 +54,7 @@ public class MainFrame extends JPanel  {
 		Timer timer = new Timer();     								
 		timer.schedule(new MyTask(), 0, 5);
 	}
-	public void paint(Graphics g) {  
+	public void paint(Graphics g){  
 		if(Current==mapStart){
 			g.drawImage(Current.image,Current.x,Current.y,Current.width,Current.height,this);	
 		}
@@ -60,31 +63,28 @@ public class MainFrame extends JPanel  {
 			g.drawImage(h.img,h.x,h.y,150,150,this);
 			g.setColor(Color.BLUE);
 			g.setFont(new Font("华文彩云", Font.BOLD, 25));
-			g.drawString("杜威"+Current, 50, 50);
+			g.drawString("Hero"+Current, 50, 50);
 		}
 		else if(Current==mapCorridor1){
 			g.drawImage(Current.image,Current.x,Current.y,Current.width,Current.height,this);
 			g.drawImage(h.img,h.x,h.y,150,150,this);
 			g.setColor(Color.BLUE);
 			g.setFont(new Font("华文彩云", Font.BOLD, 25));
-			g.drawString("杜威"+Current, 50, 50);
+			g.drawString("Hero"+Current, 50, 50);
 		}
 		else if(Current==mapCorridor2){
 			g.drawImage(Current.image,Current.x,Current.y,Current.width,Current.height,this);
 			g.drawImage(h.img,h.x,h.y,150,150,this);
 			g.setColor(Color.BLUE);
 			g.setFont(new Font("华文彩云", Font.BOLD, 25));
-			g.drawString("杜威"+Current, 50, 50);
+			g.drawString("Hero"+Current, 50, 50);
 		}
 	}	
 
 	
 	
-	static class MyTask extends TimerTask{		
-		private int runTimes = 0;  								
+	static class MyTask extends TimerTask{					
 		public void run(){
-                //每执行一次run方法，runTimes就+1  
-                runTimes++;  
                 h.step();
                 mf.repaint();					
         }     
