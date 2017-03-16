@@ -9,15 +9,48 @@ public class Trigger {
 		mf=Frame;
 		h=MainFrame.h;
 	}
-	public static boolean enter(){
-		for(int i=0;i<mf.Current.destination.length;i++){
+	public static void enter(){
+		int destination=-1;
+		for(int i=0;i<mf.Current.door.length;i++){
 			if(mf.Current.door[i].contains(h.x,h.y)){			//坐标在地点转换的区域
-				mf.Current=mf.Current.destination[i];//加了destination的都没用,应该是destination出了错,可根据door的属性来判断destination的问题
-				System.out.println("转换场地"+mf.map1303.destination[0]);
-				return true;
+				destination=i;
+				break;
 			}
 		}
-			return false;
+		
+		if(mf.Current==mf.map1303){
+			switch(destination){
+				case 0:
+					mf.Current=mf.mapCorridor1;
+					System.out.println(destination);
+					break;
+				case 1:
+					mf.Current=mf.mapCorridor1;
+					System.out.println(destination);
+					break;
+				case 2:
+					mf.Current=mf.mapCorridor1;
+					System.out.println(destination);
+					break;
+			}
+		}
+		
+		else if(mf.Current==mf.mapCorridor1)
+			switch(destination){
+			case 0:
+				mf.Current=mf.mapCorridor2;
+				System.out.println(destination);
+				break;
+			case 1:
+				mf.Current=mf.mapCorridor2;
+				System.out.println(destination);
+				break;
+			case 2:
+				mf.Current=mf.mapCorridor2;
+				System.out.println(destination);
+				break;
+		}
+	
 	}
 	public static void check(hero h,NPC n){			//先判断和门有没有碰.
 	}
