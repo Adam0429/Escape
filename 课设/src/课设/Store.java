@@ -1,5 +1,7 @@
 package ¿ÎÉè;
 
-public class Store {
+import java.io.Serializable;
+
+public class Store implements Serializable{
 
 }

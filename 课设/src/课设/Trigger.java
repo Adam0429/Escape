@@ -1,13 +1,14 @@
 package øŒ…Ë;
 
 import java.awt.Rectangle;
+import java.io.Serializable;
 
-public class Trigger {
+public class Trigger implements Serializable{
 	static MainFrame mf;
 	static hero h;
 	public Trigger(MainFrame Frame,hero h1){
 		mf=Frame;
-		h=MainFrame.h;
+		h=h1;
 	}
 	public static void enter(){
 		int destination=-1;
@@ -38,15 +39,15 @@ public class Trigger {
 		else if(mf.Current==mf.mapCorridor1)
 			switch(destination){
 			case 0:
-				mf.Current=mf.mapCorridor2;
+				mf.Current=mf.map1303;
 				System.out.println(destination);
 				break;
 			case 1:
-				mf.Current=mf.mapCorridor2;
+				mf.Current=mf.map1303;
 				System.out.println(destination);
 				break;
 			case 2:
-				mf.Current=mf.mapCorridor2;
+				mf.Current=mf.map1303;
 				System.out.println(destination);
 				break;
 		}

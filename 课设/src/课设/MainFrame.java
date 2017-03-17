@@ -9,6 +9,7 @@ import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.io.Serializable;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -17,7 +18,7 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
-public class MainFrame extends JPanel  {
+public class MainFrame extends JPanel implements Serializable {
 	//有个问题：打包成jar后，eclipse下可以显示的图片，jar无法显示，应该是图片路径的问题
 	public static JFrame frame=new JFrame();
 	public static MainFrame mf=new MainFrame();

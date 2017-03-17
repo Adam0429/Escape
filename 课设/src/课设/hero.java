@@ -2,14 +2,15 @@ package 课设;
 
 import java.awt.Image;
 import java.awt.Rectangle;
+import java.io.Serializable;
 import java.util.Random;
 
 import javax.swing.ImageIcon;
 
-public class hero extends Thread{
+public class hero extends Thread implements Serializable{
 	int x=0;
 	int y=350;							
-	Image img;
+	transient Image img;
 	int speed=3;
 	int jumpspeed=1;
 	int downspeed=2;				
@@ -25,8 +26,8 @@ public class hero extends Thread{
     //ImageIcon image1 = new ImageIcon(imgURL1);
     //java.net.URL imgURL2 = hero.class.getResource("2.png");
     //ImageIcon image2 = new ImageIcon(imgURL2);
-    Image img1 = new ImageIcon(this.getClass().getResource("./1.png")).getImage();
-    Image img2 = new ImageIcon(this.getClass().getResource("./2.png")).getImage();
+	transient Image img1 = new ImageIcon(this.getClass().getResource("./1.png")).getImage();
+	transient Image img2 = new ImageIcon(this.getClass().getResource("./2.png")).getImage();
 	//ImageIcon icon = new ImageIcon("D:/学习/workspace/课设/src/课设/1.png");
 	//Image img1= image1.getImage();
 	//ImageIcon icon2 = new ImageIcon("D:/学习/workspace/课设/src/课设/2.png");

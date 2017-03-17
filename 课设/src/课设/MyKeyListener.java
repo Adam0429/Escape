@@ -2,8 +2,9 @@ package øŒ…Ë;
 
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.io.Serializable;
 
-public class MyKeyListener implements KeyListener{
+public class MyKeyListener implements KeyListener,Serializable{
 	MainFrame mf;
 	hero h;
 	public MyKeyListener(MainFrame Frame,hero h1){
@@ -27,6 +28,14 @@ public class MyKeyListener implements KeyListener{
 		 if(e.getKeyCode() == KeyEvent.VK_E) {  
 			 Trigger t=new Trigger(mf,h);
 			 t.enter();
+		 }
+		 if(e.getKeyCode() == KeyEvent.VK_1) {  	
+			 Save s=new Save(mf,h);
+			 System.out.println("¥Êµµ");
+		 }
+		 if(e.getKeyCode() == KeyEvent.VK_0) {  	
+			 Read r=new Read(mf,h);
+			 System.out.println("∂¡µµ");
 		 }
 	}
 	public void keyReleased(KeyEvent e) {

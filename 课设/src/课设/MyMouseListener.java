@@ -3,8 +3,9 @@ package ¿ÎÉè;
 import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.io.Serializable;
 
-public class MyMouseListener implements MouseListener{
+public class MyMouseListener implements MouseListener,Serializable{
 
 	@Override
 	public void mouseClicked(MouseEvent e) {
