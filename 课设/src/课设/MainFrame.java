@@ -60,7 +60,7 @@ public class MainFrame extends JPanel implements Serializable {
 	}
 	void init(){
 		Timer timer = new Timer();     								
-		timer.schedule(new MyTask(), 0, 5);
+		timer.schedule(new MyTask(), 0, 25);
 	}
 	public void paint(Graphics g){  
 		if(Current==mapStart){
@@ -98,10 +98,18 @@ public class MainFrame extends JPanel implements Serializable {
 
 	
 	
-	static class MyTask extends TimerTask{					
+	static class MyTask extends TimerTask{
+		boolean i=false;
 		public void run(){
-                h.step();
-                mf.repaint();					
+				if(i==false){
+					h.img=h.img1;
+					i=true;
+				}
+				else {
+					h.img=h.img2;
+					i=false;
+				}
+					mf.repaint();					
         }     
 	}
 

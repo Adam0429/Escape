@@ -13,7 +13,7 @@ public class Read implements Serializable{
 			FileInputStream is=new FileInputStream("C:/Users/wfh/Desktop/save.ser");
 			ObjectInputStream oi=new ObjectInputStream(is);
 			m=(MainFrame)oi.readObject();
-			System.out.println("读取地图"+m.Current);//地图一直显示为当前界面是因为，read对象在keylistener类里被调用,read中被参入的参数是kl里的
+			System.out.println("读取地图"+m.Current);//地图一直显示为当前界面,不知道为什么
 			//mf.Current=map;  这样做会使界面卡住，因为image不能序列化
 			h=(hero)oi.readObject();
 			oi.close();

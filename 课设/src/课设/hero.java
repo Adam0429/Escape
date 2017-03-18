@@ -20,8 +20,8 @@ public class hero extends Thread implements Serializable{
 	boolean jumpFlag=false;				//是否达到跳跃顶点
 	int money;  
 	Bag bag=new Bag();
-	int width=150;
-	int height=150;
+	int width=400;
+	int height=200;
 	public boolean left=false,right=false,down=false,up=false; 
 	//java.net.URL imgURL1 = hero.class.getResource("1.png");
     //ImageIcon image1 = new ImageIcon(imgURL1);
@@ -67,15 +67,14 @@ public class hero extends Thread implements Serializable{
         }  
     	}
     }	
-    void step(){
+   /* void step(){
     	Random r=new Random();
 		if(r.nextInt(2)==0){
 			img=img1;
 		}
 		else 
 			img=img2;
-	}
-    
+	}*/    
 	void jump(){
 		for (int i = 0; i <3 ; i++) {  			
 			y-=this.jumpspeed;
