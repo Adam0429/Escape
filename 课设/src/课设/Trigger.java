@@ -1,5 +1,6 @@
 package 课设;
 
+import java.awt.Graphics;
 import java.awt.Rectangle;
 import java.io.Serializable;
 
@@ -54,5 +55,14 @@ public class Trigger implements Serializable{
 	
 	}
 	public static void check(hero h,NPC n){			//先判断和门有没有碰.
+		Rectangle r=new Rectangle(n.x,n.y,n.width,n.height);
+		Rectangle r1=new Rectangle(h.x,h.y,h.width,h.height);
+		if(r1.intersects(r)){
+			System.out.println("接触");
+			if(n.state==0)
+				n.state=1;
+			else 
+				n.state=0;
+		}
 	}
 }

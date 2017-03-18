@@ -9,8 +9,6 @@ public class Map1304 extends Map{
 	public Map1304(MainFrame mf,hero h){
 		x=0;
 		y=0;
-		h.x=0;
-		h.y=350;
 		height=750;
 		width=1200;
 		image = new ImageIcon(this.getClass().getResource("./Map1304.png")).getImage();

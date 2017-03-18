@@ -10,6 +10,7 @@ public class Save implements Serializable{
 			FileOutputStream fs=new FileOutputStream("C:/Users/wfh/Desktop/save.ser");
 			ObjectOutputStream os=new ObjectOutputStream(fs);
 			os.writeObject(mf);
+			System.out.println(mf.Current);
 			os.writeObject(h);
 			os.close();
 		}catch(Exception e){

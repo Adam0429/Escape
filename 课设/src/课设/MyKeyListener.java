@@ -1,5 +1,6 @@
 package øŒ…Ë;
 
+import java.awt.Graphics;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.io.Serializable;
@@ -25,16 +26,21 @@ public class MyKeyListener implements KeyListener,Serializable{
 		 if(e.getKeyCode() == KeyEvent.VK_ENTER) {  	
 			 mf.Current=mf.map1303;
 		 }
-		 if(e.getKeyCode() == KeyEvent.VK_E) {  
+		 if(e.getKeyCode() == KeyEvent.VK_E) {
 			 Trigger t=new Trigger(mf,h);
 			 t.enter();
+			 int i=0;
+			 while(mf.Current.N[i]!=null){
+				 t.check(h, mf.Current.N[i]);
+				 i++;
+			 }
 		 }
 		 if(e.getKeyCode() == KeyEvent.VK_1) {  	
 			 Save s=new Save(mf,h);
 			 System.out.println("¥Êµµ");
 		 }
 		 if(e.getKeyCode() == KeyEvent.VK_0) {  	
-			 Read r=new Read(mf,h);
+			 Read r=new Read();
 			 System.out.println("∂¡µµ");
 		 }
 	}

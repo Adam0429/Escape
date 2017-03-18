@@ -9,18 +9,19 @@ import javax.swing.ImageIcon;
 
 public class hero extends Thread implements Serializable{
 	int x=0;
-	int y=350;							
+	int y=450;							
 	transient Image img;
+	transient Image stateimage = new ImageIcon(this.getClass().getResource("./状态条.png")).getImage();
 	int speed=3;
 	int jumpspeed=1;
 	int downspeed=2;				
-	int floorhigh=y;					//地面的坐标
-	int jumphigh=300;					//跳跃到的最大坐标
+	int floorhigh=450;					//地面的高度
+	int jumphigh=350;					//跳跃到的最大坐标
 	boolean jumpFlag=false;				//是否达到跳跃顶点
 	int money;  
 	Bag bag=new Bag();
-	int width;
-	int height;
+	int width=150;
+	int height=150;
 	public boolean left=false,right=false,down=false,up=false; 
 	//java.net.URL imgURL1 = hero.class.getResource("1.png");
     //ImageIcon image1 = new ImageIcon(imgURL1);

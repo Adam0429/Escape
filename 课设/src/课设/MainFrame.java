@@ -56,6 +56,7 @@ public class MainFrame extends JPanel implements Serializable {
 	}
 	public MainFrame(){
 		init();
+		
 	}
 	void init(){
 		Timer timer = new Timer();     								
@@ -67,21 +68,28 @@ public class MainFrame extends JPanel implements Serializable {
 		}
 		else if(Current==map1303){
 			g.drawImage(Current.image,Current.x,Current.y,Current.width,Current.height,this);
-			g.drawImage(h.img,h.x,h.y,150,150,this);
+			g.drawImage(h.stateimage, 0, 0, this);
+			g.drawImage(map1303.N[0].img1, map1303.N[0].x, map1303.N[0].y, this);
+			g.drawImage(h.img,h.x,h.y,h.width,h.height,this);
+			if(map1303.N[0].state==1){
+				g.setFont(new Font("楷体", Font.BOLD, 25));
+				g.setColor(Color.BLACK);
+				g.drawString("王飞鸿：我就是一坨大屎巴撅儿",600,600);
+			}
 			g.setColor(Color.BLUE);
 			g.setFont(new Font("华文彩云", Font.BOLD, 25));
 			g.drawString("Hero"+Current, 50, 50);
 		}
 		else if(Current==mapCorridor1){
 			g.drawImage(Current.image,Current.x,Current.y,Current.width,Current.height,this);
-			g.drawImage(h.img,h.x,h.y,150,150,this);
+			g.drawImage(h.img,h.x,h.y,h.width,h.height,this);
 			g.setColor(Color.BLUE);
 			g.setFont(new Font("华文彩云", Font.BOLD, 25));
 			g.drawString("Hero"+Current, 50, 50);
 		}
 		else if(Current==mapCorridor2){
 			g.drawImage(Current.image,Current.x,Current.y,Current.width,Current.height,this);
-			g.drawImage(h.img,h.x,h.y,150,150,this);
+			g.drawImage(h.img,h.x,h.y,h.width,h.height,this);
 			g.setColor(Color.BLUE);
 			g.setFont(new Font("华文彩云", Font.BOLD, 25));
 			g.drawString("Hero"+Current, 50, 50);

@@ -8,8 +8,6 @@ public class MapCorridor2 extends Map{
 	public MapCorridor2(MainFrame mf,hero h){
 		x=0;
 		y=0;
-		h.x=0;
-		h.y=350;
 		height=750;
 		width=1200;
 		image = new ImageIcon(this.getClass().getResource("./MapCorridor2.png")).getImage();
