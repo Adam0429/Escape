@@ -9,13 +9,13 @@ import javax.swing.ImageIcon;
 
 public class hero extends Thread implements Serializable{
 	int x=0;
-	int y=450;							
+	int y=400;							
 	transient Image img;
 	transient Image stateimage = new ImageIcon(this.getClass().getResource("./状态条.png")).getImage();
 	int speed=3;
 	int jumpspeed=1;
 	int downspeed=2;				
-	int floorhigh=450;					//地面的高度
+	int floorhigh=400;					//地面的高度
 	int jumphigh=350;					//跳跃到的最大坐标
 	boolean jumpFlag=false;				//是否达到跳跃顶点
 	int money;  

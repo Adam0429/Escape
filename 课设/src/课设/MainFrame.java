@@ -62,14 +62,18 @@ public class MainFrame extends JPanel implements Serializable {
 		Timer timer = new Timer();     								
 		timer.schedule(new MyTask(), 0, 25);
 	}
-	public void paint(Graphics g){  
+	public void paint(Graphics g){ 
+		int i=0;
 		if(Current==mapStart){
 			g.drawImage(Current.image,Current.x,Current.y,Current.width,Current.height,this);	
 		}
 		else if(Current==map1303){
 			g.drawImage(Current.image,Current.x,Current.y,Current.width,Current.height,this);
 			g.drawImage(h.stateimage, 0, 0, this);
-			g.drawImage(map1303.N[0].img1, map1303.N[0].x, map1303.N[0].y, this);
+			while(map1303.N[i]!=null){
+				g.drawImage(map1303.N[i].img1, map1303.N[i].x, map1303.N[i].y,map1303.N[i].width,map1303.N[i].height,this);
+				i++;
+			}
 			g.drawImage(h.img,h.x,h.y,h.width,h.height,this);
 			if(map1303.N[0].state==1){
 				g.setFont(new Font("¿¬Ìå", Font.BOLD, 25));
@@ -78,7 +82,7 @@ public class MainFrame extends JPanel implements Serializable {
 			}
 			g.setColor(Color.BLUE);
 			g.setFont(new Font("»ªÎÄ²ÊÔÆ", Font.BOLD, 25));
-			g.drawString("Hero"+Current, 50, 50);
+			//g.drawString("Hero"+Current, 50, 50);
 		}
 		else if(Current==mapCorridor1){
 			g.drawImage(Current.image,Current.x,Current.y,Current.width,Current.height,this);
