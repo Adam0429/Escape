@@ -12,6 +12,7 @@ public class Map implements Serializable{
 	int y;
 	int height;
 	int width;
+	boolean dialog=false;//用来控制同时只存在一个对话
 	transient Image image;//image不可以序列化，而又需要image来绘图, 
 	transient NPC[] N=new NPC[10];
 	transient Rectangle[] door=new Rectangle[3];//门作为一个事件的触发区域,一个地图最多有3个门，每个子类里至少定义一个，不然会抛出空指针异常
