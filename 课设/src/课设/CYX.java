@@ -4,10 +4,10 @@ import javax.swing.ImageIcon;
 
 public class CYX extends NPC{
 	public CYX(){
-		x=600;
-		y=360;
-		width=400;
-		height=240;
+		x=800;
+		y=365;
+		width=100;
+		height=200;
 		img1=new ImageIcon(this.getClass().getResource("./CYX.png")).getImage();
 	}
 	

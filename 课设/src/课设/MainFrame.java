@@ -74,11 +74,16 @@ public class MainFrame extends JPanel implements Serializable {
 				g.drawImage(map1303.N[i].img1, map1303.N[i].x, map1303.N[i].y,map1303.N[i].width,map1303.N[i].height,this);
 				i++;
 			}
+			i=0;
 			g.drawImage(h.img,h.x,h.y,h.width,h.height,this);
-			if(map1303.N[0].state==1){
-				g.setFont(new Font("楷体", Font.BOLD, 25));
+			g.setFont(new Font("楷体", Font.BOLD, 25));
 				g.setColor(Color.BLACK);
+			if(map1303.N[0].state==1){
+				
 				g.drawString("王飞鸿：我就是一坨大屎巴撅儿",600,600);
+			}
+			if(map1303.N[1].state==1){
+				
 			}
 			g.setColor(Color.BLUE);
 			g.setFont(new Font("华文彩云", Font.BOLD, 25));

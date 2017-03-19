@@ -11,7 +11,7 @@ public class Trigger implements Serializable{
 		mf=Frame;
 		h=h1;
 	}
-	public static void enter(){
+	public static void enter(){					//先判断和门有没有碰.
 		int destination=-1;
 		for(int i=0;i<mf.Current.door.length;i++){
 			if(mf.Current.door[i].contains(h.x,h.y)){			//坐标在地点转换的区域
@@ -54,13 +54,15 @@ public class Trigger implements Serializable{
 		}
 	
 	}
-	public static void check(hero h,NPC n){			//先判断和门有没有碰.
-		Rectangle r=new Rectangle(n.x,n.y,n.width,n.height);
+	public static void check(hero h,NPC n){			
+		Rectangle r=new Rectangle(n.x,n.y,n.triggerwidth,n.triggerheight);
 		Rectangle r1=new Rectangle(h.x,h.y,h.width,h.height);
-		if(r1.intersects(r)){
+		if(r.contains(h.x, h.y)){
 			System.out.println("接触");
-			if(n.state==0)
+			if(n.state==0){
 				n.state=1;
+				n.function(h);
+			}
 			else 
 				n.state=0;
 		}
