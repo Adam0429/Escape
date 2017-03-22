@@ -13,27 +13,37 @@ public class MyKeyListener implements KeyListener,Serializable{
 		h=MainFrame.h;
 	}
 	public void keyPressed(KeyEvent e) {
-		 if(e.getKeyCode() == KeyEvent.VK_RIGHT) {  	
+		 if(e.getKeyCode() == KeyEvent.VK_RIGHT) {	 
 			 h.right=true;
+			 if(mf.Current==mf.mapCorridor1&&h.x>1000)
+				 mf.Current=mf.mapToilet;
+			 if(mf.Current==mf.mapCorridor2&&h.x>1000)
+				 mf.Current=mf.mapCorridor2;
 		 }
-		 if(e.getKeyCode() == KeyEvent.VK_LEFT) {  
-		     h.left=true;	
+		 if(e.getKeyCode() == KeyEvent.VK_LEFT) {
+			 h.left=true;
+			 if(mf.Current==mf.mapCorridor1&&h.x<100)
+				 mf.Current=mf.mapCorridor2;
+			 if(mf.Current==mf.mapToilet&&h.x<100)
+				 mf.Current=mf.mapCorridor1;
 		 }
 		 if(e.getKeyCode() == KeyEvent.VK_SPACE) {  
 			 h.down=false;
 			 h.up=true;
 		 }
 		 if(e.getKeyCode() == KeyEvent.VK_ENTER) {  	
-			 mf.Current=mf.map1303;
+			 if(mf.Current==mf.mapStart)
+				 mf.Current=mf.map1303;
 		 }
 		 if(e.getKeyCode() == KeyEvent.VK_E) {
 			 Trigger t=new Trigger(mf,h);
 			 t.enter();
 			 int i=0;
 			 while(mf.Current.N[i]!=null){
-				 t.check(h, mf.Current.N[i]);
+				 t.check(mf.Current.N[i]);
 				 i++;
 			 }
+			 System.out.println(mf.dialog);
 		 }
 		 if(e.getKeyCode() == KeyEvent.VK_1) {  	
 			 Save s=new Save(mf,h);

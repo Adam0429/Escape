@@ -36,15 +36,18 @@ public class MainFrame extends JPanel implements Serializable {
 	 * map1303,最后溢出,由此排出这种方法.后来只能新建一个类专门用来new每个map,然后把map的对象传到destination里面,这个方法还是不行*/
 	public static Map mapCorridor1=new MapCorridor1(mf,h);
 	public static Map mapCorridor2=new MapCorridor2(mf,h);
+	public static Map mapToilet=new MapToilet(mf,h);
 	public static Map mapIntroduce=new MapIntroduce();
 	public static Map Current=mapStart;
 	public static boolean isOver=false;
 	public static MyKeyListener mk=new MyKeyListener(mf,h);
 	public static MyMouseListener mm=new MyMouseListener();
+	public static boolean dialog=false;//用来控制同时只存在一个对话
 	public static void main(String[] Args){
 		h.start();
 		frame.setTitle("Escape");
 		frame.setSize(1200, 750);
+		frame.setResizable(false);//固定窗口大小
 		frame.getContentPane().add(mf);
 		//frame.getContentPane().setLayout(null);//设置框架布局模式为空，只有这样，才能知道图片的真正位置  
 		frame.addKeyListener(mk);
@@ -82,7 +85,10 @@ public class MainFrame extends JPanel implements Serializable {
 				g.drawString("王飞鸿：威哥如果去约炮的话，要记得带上东西",600,600);
 			}
 			if(map1303.N[1].state==1){
-				g.drawString("吴瑀：我是宿舍大骚逼",600,600);
+				g.drawString("吴瑀：宿舍门已经锁了，别想出去",600,600);
+			}
+			if(map1303.N[2].state==1){
+				g.drawString("娇娇：你的电脑上面好像有什么信息....?",600,600);
 			}
 			g.setColor(Color.BLUE);
 			g.setFont(new Font("华文彩云", Font.BOLD, 25));
@@ -102,22 +108,20 @@ public class MainFrame extends JPanel implements Serializable {
 			g.setFont(new Font("华文彩云", Font.BOLD, 25));
 			g.drawString("Hero"+Current, 50, 50);
 		}
+		else if(Current==mapToilet){
+			g.drawImage(Current.image,Current.x,Current.y,Current.width,Current.height,this);
+			g.drawImage(h.img,h.x,h.y,h.width,h.height,this);
+			g.setColor(Color.BLUE);
+			g.setFont(new Font("华文彩云", Font.BOLD, 25));
+			g.drawString("Hero"+Current, 50, 50);
+		}
 	}	
 
 	
 	
 	static class MyTask extends TimerTask{
-		boolean i=false;
 		public void run(){
-				if(i==false){
-					h.img=h.img1;
-					i=true;
-				}
-				else {
-					h.img=h.img2;
-					i=false;
-				}
-					mf.repaint();					
+			mf.repaint();					
         }     
 	}
 

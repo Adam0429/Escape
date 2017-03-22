@@ -54,20 +54,30 @@ public class Trigger implements Serializable{
 		}
 	
 	}
-	public static void check(hero h,NPC n){			
+	public static void check(NPC n){			
 		Rectangle r=new Rectangle(n.x,n.y,n.width,n.height);
 		//Rectangle r1=new Rectangle(h.x,h.y,h.width,h.height);
 		if(r.contains(h.x+58, h.y+70)){	//因为人物坐标是图片的左上角，要想用人物中心的坐标判断接触，要做小小的调整
 			System.out.println("接触");
-			if(n.state==0){
-
-				n.state=1;
-				n.function(h);
+			if(mf.dialog==false){			//dialog没有改变，逻辑有错
+				if(n.state==0){
+					n.state=1;
+					n.function(h);
+				}
+				else{
+					n.state=0;
+				}
+				mf.dialog=true;
 			}
-			else{ 
-				n.state=0;
-	
+			else{
+				int i=0;
+				mf.dialog=false;
+				while(mf.Current.N[i]!=null){
+					mf.Current.N[i].state=0;
+					i++;
+				}
 			}
 		}
 	}
+	
 }

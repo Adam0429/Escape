@@ -10,7 +10,7 @@ import javax.swing.ImageIcon;
 public class hero extends Thread implements Serializable{
 	int x=0;
 	int y=400;							
-	transient Image img;
+	
 	transient Image stateimage = new ImageIcon(this.getClass().getResource("./状态条.png")).getImage();
 	int speed=3;
 	int jumpspeed=1;
@@ -27,8 +27,10 @@ public class hero extends Thread implements Serializable{
     //ImageIcon image1 = new ImageIcon(imgURL1);
     //java.net.URL imgURL2 = hero.class.getResource("2.png");
     //ImageIcon image2 = new ImageIcon(imgURL2);
-	transient Image img1 = new ImageIcon(this.getClass().getResource("./1.png")).getImage();
-	transient Image img2 = new ImageIcon(this.getClass().getResource("./2.png")).getImage();
+	transient Image img = new ImageIcon(this.getClass().getResource("./hero.png")).getImage();
+	transient Image imgleft = new ImageIcon(this.getClass().getResource("./heroleft.gif")).getImage();
+	transient Image imgright = new ImageIcon(this.getClass().getResource("./heroright.gif")).getImage();
+	//public String Dir_Up="Up",Dir_Left="Left",Dir_Right="Right",Dir_Down="Down";
 	//ImageIcon icon = new ImageIcon("D:/学习/workspace/课设/src/课设/1.png");
 	//Image img1= image1.getImage();
 	//ImageIcon icon2 = new ImageIcon("D:/学习/workspace/课设/src/课设/2.png");
@@ -36,13 +38,14 @@ public class hero extends Thread implements Serializable{
     public void run(){ 
     	while(true){
     	if(left){
-    		if(hit("left")){
-    			this.speed=0;
-    		}
-    		this.x=this.x-speed;
+    		img=imgleft;
+    		if(this.x>0)
+    			this.x=this.x-speed;
     	}
     	if(right){
-    		this.x=this.x+speed;
+    		img=imgright;
+    		if(this.x<1120)
+    			this.x=this.x+speed;
     	}
     	if(up){
     		if(!jumpFlag){
