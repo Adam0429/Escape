@@ -6,9 +6,7 @@ import java.io.Serializable;
 
 public class Read implements Serializable{  
 	//所有用到的类必须implements Serializable，包括类中用到的其他类。还有不能实例化的类要注明transient
-	MainFrame m;
-	hero h;
-	public Read(){
+	public Read(MainFrame m,hero h){
 		try{
 			FileInputStream is=new FileInputStream("C:/Users/wfh/Desktop/save.ser");
 			ObjectInputStream oi=new ObjectInputStream(is);

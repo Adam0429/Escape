@@ -18,6 +18,7 @@ public class Map1303 extends Map{
 		N[0]=new WFH();
 		N[1]=new WY();
 		N[2]=new CYX();
+		T[0]=new Computer();
 		//NPC存在地图中
 		/*MapSet ms=new MapSet(mf,h);
 		if(ms.mapCorridor1==null){	//这段之前用来测试空指针问题

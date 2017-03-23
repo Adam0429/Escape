@@ -15,17 +15,25 @@ public class MyKeyListener implements KeyListener,Serializable{
 	public void keyPressed(KeyEvent e) {
 		 if(e.getKeyCode() == KeyEvent.VK_RIGHT) {	 
 			 h.right=true;
-			 if(mf.Current==mf.mapCorridor1&&h.x>1000)
-				 mf.Current=mf.mapToilet;
-			 if(mf.Current==mf.mapCorridor2&&h.x>1000)
-				 mf.Current=mf.mapCorridor2;
+			 if(mf.Current==mf.mapCorridor1&&h.x>1000){
+			 	 mf.Current=mf.mapToilet;
+			 	 h.x=100;
+			 }
+			 if(mf.Current==mf.mapCorridor2&&h.x>1000){
+				 mf.Current=mf.mapCorridor1;
+				 h.x=100;
+			 }
 		 }
 		 if(e.getKeyCode() == KeyEvent.VK_LEFT) {
 			 h.left=true;
-			 if(mf.Current==mf.mapCorridor1&&h.x<100)
+			 if(mf.Current==mf.mapCorridor1&&h.x<100){
 				 mf.Current=mf.mapCorridor2;
-			 if(mf.Current==mf.mapToilet&&h.x<100)
+				 h.x=900;
+			 }
+			 if(mf.Current==mf.mapToilet&&h.x<100){
 				 mf.Current=mf.mapCorridor1;
+				 h.x=900;
+			 }
 		 }
 		 if(e.getKeyCode() == KeyEvent.VK_SPACE) {  
 			 h.down=false;
@@ -43,14 +51,13 @@ public class MyKeyListener implements KeyListener,Serializable{
 				 t.check(mf.Current.N[i]);
 				 i++;
 			 }
-			 System.out.println(mf.dialog);
 		 }
 		 if(e.getKeyCode() == KeyEvent.VK_1) {  	
 			 Save s=new Save(mf,h);
 			 System.out.println("´æµµ");
 		 }
 		 if(e.getKeyCode() == KeyEvent.VK_0) {  	
-			 Read r=new Read();
+			 Read r=new Read(mf,h);
 			 System.out.println("¶Áµµ");
 		 }
 	}

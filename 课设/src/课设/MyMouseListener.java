@@ -6,12 +6,23 @@ import java.awt.event.MouseListener;
 import java.io.Serializable;
 
 public class MyMouseListener implements MouseListener,Serializable{
-
-	@Override
+	MainFrame mf;
+	hero h;
+	public MyMouseListener(MainFrame Frame,hero h1){
+		mf=Frame;
+		h=MainFrame.h;
+	}
 	public void mouseClicked(MouseEvent e) {
 		System.out.println(e.getX());
 		System.out.println(e.getY());
-		
+		int x=e.getX();
+		int y=e.getY();
+		Trigger t=new Trigger(mf,h);
+		int i=0;
+		while(mf.Current.T[i]!=null){
+			t.use(mf.Current.T[i], x, y);
+			i++;
+		 }
 		
 	}
 

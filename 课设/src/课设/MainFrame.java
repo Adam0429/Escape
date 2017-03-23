@@ -41,7 +41,8 @@ public class MainFrame extends JPanel implements Serializable {
 	public static Map Current=mapStart;
 	public static boolean isOver=false;
 	public static MyKeyListener mk=new MyKeyListener(mf,h);
-	public static MyMouseListener mm=new MyMouseListener();
+	public static MyMouseListener mm=new MyMouseListener(mf,h);
+	Image TalkBox = new ImageIcon(this.getClass().getResource("./TalkBox.png")).getImage();
 	public static boolean dialog=false;//用来控制同时只存在一个对话
 	public static void main(String[] Args){
 		h.start();
@@ -82,13 +83,20 @@ public class MainFrame extends JPanel implements Serializable {
 			g.setFont(new Font("楷体", Font.BOLD, 25));
 				g.setColor(Color.BLACK);
 			if(map1303.N[0].state==1){
-				g.drawString("王飞鸿：威哥如果去约炮的话，要记得带上东西",600,600);
+				g.drawImage(TalkBox,300, 500, 600, 200,this);
+				g.drawString("王飞鸿：威哥如果去约炮的话，要记得带上东西",330,600);
 			}
 			if(map1303.N[1].state==1){
-				g.drawString("吴瑀：宿舍门已经锁了，别想出去",600,600);
+				g.drawImage(TalkBox,300, 500, 600, 200,this);
+				g.drawString("吴瑀：宿舍门已经锁了，别想出去",330,600);
 			}
 			if(map1303.N[2].state==1){
-				g.drawString("娇娇：你的电脑上面好像有什么信息....?",600,600);
+				g.drawImage(TalkBox,300, 500, 600, 200,this);
+				g.drawString("娇娇：你的电脑上面好像有什么信息....?",330,600);
+			}
+			if(map1303.T[0].state==1){
+				//mf.Current=
+				System.out.println("22dsdsd");
 			}
 			g.setColor(Color.BLUE);
 			g.setFont(new Font("华文彩云", Font.BOLD, 25));
