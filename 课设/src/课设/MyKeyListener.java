@@ -5,23 +5,36 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.io.Serializable;
 
+import org.omg.CORBA.Current;
+
 public class MyKeyListener implements KeyListener,Serializable{
 	MainFrame mf;
 	hero h;
+	Map map;
 	public MyKeyListener(MainFrame Frame,hero h1){
 		mf=Frame;
 		h=MainFrame.h;
 	}
 	public void keyPressed(KeyEvent e) {
-		 if(e.getKeyCode() == KeyEvent.VK_RIGHT) {	 
-			 h.right=true;
-			 if(mf.Current==mf.mapCorridor1&&h.x>1000){
-			 	 mf.Current=mf.mapToilet;
-			 	 h.x=100;
+		if(e.getKeyCode() == KeyEvent.VK_H){
+			if(mf.Current!=mf.mapIntroduce){			
+				map=mf.Current;
+				mf.Current=mf.mapIntroduce;
+			}
+			else if(mf.Current==mf.mapIntroduce){
+				mf.Current=map;
+			}
+			
+		}
+		if(e.getKeyCode() == KeyEvent.VK_RIGHT) {	 
+			h.right=true;
+			if(mf.Current==mf.mapCorridor1&&h.x>1000){
+				mf.Current=mf.mapToilet;
+			 	h.x=100;
 			 }
 			 if(mf.Current==mf.mapCorridor2&&h.x>1000){
-				 mf.Current=mf.mapCorridor1;
-				 h.x=100;
+				mf.Current=mf.mapCorridor1;
+				h.x=100;
 			 }
 		 }
 		 if(e.getKeyCode() == KeyEvent.VK_LEFT) {

@@ -8,6 +8,7 @@ import java.io.Serializable;
 public class MyMouseListener implements MouseListener,Serializable{
 	MainFrame mf;
 	hero h;
+	Map temp;
 	public MyMouseListener(MainFrame Frame,hero h1){
 		mf=Frame;
 		h=MainFrame.h;
