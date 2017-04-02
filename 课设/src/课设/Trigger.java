@@ -4,6 +4,10 @@ import java.awt.Graphics;
 import java.awt.Rectangle;
 import java.io.Serializable;
 
+import javax.swing.JOptionPane;
+
+import dsa.iface.IIterator;
+
 public class Trigger implements Serializable{
 	static MainFrame mf;
 	static hero h;
@@ -127,25 +131,11 @@ public class Trigger implements Serializable{
 	public static void use(NPC n,int x,int y){		
 		Rectangle r=new Rectangle(n.x,n.y,n.width,n.height);
 		if(r.contains(x, y)){
-			if(mf.dialog==false){			//dialog没有改变，逻辑有错
-				if(n.state==0){
-					n.state=1;
-					mf.Current=mf.mapComputer;
-					n.function(h);
-				}
-				else{
-					n.state=0;
-				}
-				mf.dialog=true;
+			if(n instanceof Map1303Computer){
+				mf.Current=mf.mapComputer;
 			}
-			else{
-				int i=0;
-				mf.dialog=false;
-				while(mf.Current.T[i]!=null){
-					mf.Current.T[i].state=0;
-					i++;
-				}
-			}
+			n.function(h);
+			
 		}
 	}
 	

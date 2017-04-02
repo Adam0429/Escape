@@ -16,6 +16,7 @@ import java.util.TimerTask;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 public class MainFrame extends JPanel implements Serializable {
@@ -91,7 +92,7 @@ public class MainFrame extends JPanel implements Serializable {
 				g.setColor(Color.BLACK);
 			if(map1303.N[0].state==1){
 				g.drawImage(TalkBox,300, 500, 600, 200,this);
-				g.drawString("王飞鸿：威哥如果去约炮的话，要记得带上东西",330,600);
+				g.drawString("王飞鸿：威哥要出去的话，要记得带上东西",330,600);
 			}
 			if(map1303.N[1].state==1){
 				g.drawImage(TalkBox,300, 500, 600, 200,this);

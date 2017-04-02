@@ -8,12 +8,14 @@ import java.io.Serializable;
 public class MyMouseListener implements MouseListener,Serializable{
 	MainFrame mf;
 	hero h;
-	Map temp;
 	public MyMouseListener(MainFrame Frame,hero h1){
 		mf=Frame;
 		h=MainFrame.h;
 	}
 	public void mouseClicked(MouseEvent e) {
+		if(mf.Current==mf.mapComputer){
+			mf.Current=mf.map1303;
+		}
 		System.out.println(e.getX());
 		System.out.println(e.getY());
 		int x=e.getX();
