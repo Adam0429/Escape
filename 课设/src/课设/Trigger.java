@@ -3,10 +3,10 @@ package øŒ…Ë;
 import java.awt.Graphics;
 import java.awt.Rectangle;
 import java.io.Serializable;
+import java.util.logging.Handler;
 
 import javax.swing.JOptionPane;
 
-import dsa.iface.IIterator;
 
 public class Trigger implements Serializable{
 	static MainFrame mf;
@@ -29,13 +29,16 @@ public class Trigger implements Serializable{
 			switch(destination){
 				case 0:
 					mf.Current=mf.mapCorridor1;
+					h.x=953;
 					System.out.println(destination);
 					break;
 				case 1:
+					h.x=953;
 					mf.Current=mf.mapCorridor1;
 					System.out.println(destination);
 					break;
 				case 2:
+					h.x=953;
 					mf.Current=mf.mapCorridor1;
 					System.out.println(destination);
 					break;

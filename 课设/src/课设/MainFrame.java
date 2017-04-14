@@ -1,25 +1,18 @@
 package 课设;
 
-import java.awt.BorderLayout;
 import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Image;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
 import java.io.Serializable;
 import java.util.Timer;
 import java.util.TimerTask;
-
 import javax.swing.ImageIcon;
-import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
-public class MainFrame extends JPanel implements Serializable {
+public class MainFrame extends JPanel implements Serializable {//继承jpanel类的原因是,它的repaint方法非常方便
 	//有个问题：打包成jar后，eclipse下可以显示的图片，jar无法显示，应该是图片路径的问题
 	public static JFrame frame=new JFrame();
 	public static MainFrame mf=new MainFrame();
@@ -58,7 +51,51 @@ public class MainFrame extends JPanel implements Serializable {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);  
         frame.setLocationRelativeTo(null); 
 		frame.setVisible(true);	
+		new Thread(){
 		
+			public void run() {
+				int d=0;	
+				while (true) {	
+					
+					try {
+						while(map1303.N[0].x-h.x>99){
+							map1303.N[0].x--;
+							sleep(10);
+						}
+						while(map1303.N[0].x-h.x<-99){
+							map1303.N[0].x++;
+							sleep(10);
+						}
+						while(map1303.N[0].x-h.x<100){
+							if(map1303.N[0].x<1000){
+								map1303.N[0].x++;
+								h.x++;
+								sleep(10);
+							}
+						}
+	
+						
+//来回移动					while(d==1){
+//							map1303.N[0].x--;
+//							sleep(10);
+//							if(map1303.N[0].x<0){
+//								d=0;
+//							}
+//						}
+//						while(d==0){
+//							map1303.N[0].x++;
+//							sleep(10);
+//							if(map1303.N[0].x>600){
+//								d=1;
+//							}
+//						}
+					} catch (InterruptedException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+				}
+			}
+		}.start();
 	}
 	public MainFrame(){
 		init();
@@ -68,6 +105,7 @@ public class MainFrame extends JPanel implements Serializable {
 		Timer timer = new Timer();     								
 		timer.schedule(new MyTask(), 0, 25);
 	}
+	
 	public void paint(Graphics g){ 
 		int i=0;
 		if(Current==mapStart){

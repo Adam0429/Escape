@@ -5,9 +5,11 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.io.Serializable;
 
+import javax.swing.JFrame;
+
 import org.omg.CORBA.Current;
 
-public class MyKeyListener implements KeyListener,Serializable{
+public class MyKeyListener implements KeyListener{
 	MainFrame mf;
 	hero h;
 	Map map;
@@ -18,11 +20,14 @@ public class MyKeyListener implements KeyListener,Serializable{
 	public void keyPressed(KeyEvent e) {
 		if(e.getKeyCode() == KeyEvent.VK_H){
 			if(mf.Current!=mf.mapIntroduce){			
+				new Sound();
 				map=mf.Current;
 				mf.Current=mf.mapIntroduce;
+				
 			}
 			else if(mf.Current==mf.mapIntroduce){
-				mf.Current=map;
+				new Sound();
+				mf.Current=map;	
 			}
 			
 		}
@@ -55,9 +60,21 @@ public class MyKeyListener implements KeyListener,Serializable{
 		 if(e.getKeyCode() == KeyEvent.VK_ENTER) {  	
 			 if(mf.Current==mf.mapStart)
 				 mf.Current=mf.map1303;
+			
+//				 ChessBoard chessBoard;
+//				
+//					 chessBoard=new ChessBoard();
+//					 chessBoard.frame.setTitle("五子棋");
+//					 chessBoard.frame.setSize(550, 600);
+//					 chessBoard.frame.getContentPane().add(chessBoard.cb);
+//					 chessBoard.frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);  
+//					 chessBoard.frame.setLocationRelativeTo(null); 
+//					 chessBoard.frame.addMouseListener(chessBoard.mk);
+//					 chessBoard.frame.setVisible(true);		
 		 }
 		 if(e.getKeyCode() == KeyEvent.VK_E) {
 			 Trigger t=new Trigger(mf,h);
+			// new Sound();				加了这个会特别卡
 			 t.enter();
 			 int i=0;
 			 while(mf.Current.N[i]!=null){

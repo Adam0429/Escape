@@ -11,7 +11,7 @@ public class Map1303Plane extends NPC{
 	}
 
 	public void function(hero h) {
-		JOptionPane.showMessageDialog(null, "这是南航的飞机....");
+		JOptionPane.showMessageDialog(null, "这是国航的飞机....");
 		
 	}
 }
