@@ -6,7 +6,7 @@ import java.io.Serializable;
 import java.util.logging.Handler;
 
 import javax.swing.JOptionPane;
-
+import pintugame.*;
 
 public class Trigger implements Serializable{
 	static MainFrame mf;
@@ -26,23 +26,30 @@ public class Trigger implements Serializable{
 		}
 		
 		if(mf.Current==mf.map1303){
-			switch(destination){
-				case 0:
-					mf.Current=mf.mapCorridor1;
-					h.x=953;
-					System.out.println(destination);
-					break;
-				case 1:
-					h.x=953;
-					mf.Current=mf.mapCorridor1;
-					System.out.println(destination);
-					break;
-				case 2:
-					h.x=953;
-					mf.Current=mf.mapCorridor1;
-					System.out.println(destination);
-					break;
-			}
+				switch(destination){
+					case 0:
+						if(mf.map1303.lock==true){
+							mf.Current=mf.mapCorridor1;
+							h.x=953;
+							System.out.println(destination);
+						}
+						else{
+							String passport=JOptionPane.showInputDialog(" ‰»Î√‹¬Î");
+							System.out.println(passport);
+							if(passport.equals("ZH1858")){
+								mf.map1303.lock=true;
+								JOptionPane.showMessageDialog(null, "√≈À¯“—ø™");
+							}
+							else 
+								JOptionPane.showMessageDialog(null, "√‹¬Î¥ÌŒÛ");
+						}
+							
+						break;
+					case 1:
+						break;
+					case 2:
+						break;
+				}
 		}
 		
 		else if(mf.Current==mf.map1304){

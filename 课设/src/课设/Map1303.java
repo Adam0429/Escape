@@ -20,6 +20,7 @@ public class Map1303 extends Map{
 		N[2]=new CYX();
 		T[0]=new Map1303Computer();
 		T[1]=new Map1303Plane();
+		
 		//NPC存在地图中
 		/*MapSet ms=new MapSet(mf,h);
 		if(ms.mapCorridor1==null){	//这段之前用来测试空指针问题

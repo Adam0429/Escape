@@ -12,6 +12,7 @@ public class Map implements Serializable{
 	int y;
 	int height;
 	int width;
+	boolean lock=false;
 	transient Image image;//image不可以序列化，而又需要image来绘图, 
 	transient NPC[] N=new NPC[10];
 	NPC T[]=new NPC[3];
