@@ -35,7 +35,7 @@ public class MainFrame extends JPanel implements Serializable {//¼Ì³ÐjpanelÀàµÄÔ
 	public static Map mapComputer=new MapComputer(mf,h);
 	public static Map mapToilet=new MapToilet(mf,h);
 	public static Map mapIntroduce=new MapIntroduce(mf,h);
-	public static Map Current=map1303;
+	public static Map Current=mapStart;
 	public static boolean isOver=false;
 	public static MyKeyListener mk=new MyKeyListener(mf,h);
 	public static MyMouseListener mm=new MyMouseListener(mf,h);
@@ -55,52 +55,38 @@ public class MainFrame extends JPanel implements Serializable {//¼Ì³ÐjpanelÀàµÄÔ
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);  
         frame.setLocationRelativeTo(null); 
 		frame.setVisible(true);	
-//		new Thread(){
-//			public void run() {
-//				PictureMainFrame frame =new PictureMainFrame();
-//			}
-//				int d=0;	
-//				while (true) {	
-//					
-//					try {
-//						while(map1303.N[0].x-h.x>99){
-//							map1303.N[0].x--;
-//							sleep(10);
-//						}
-//						while(map1303.N[0].x-h.x<-99){
-//							map1303.N[0].x++;
-//							sleep(10);
-//						}
-//						while(map1303.N[0].x-h.x<100){
-//							if(map1303.N[0].x<1000){
-//								map1303.N[0].x++;
-//								h.x++;
-//								sleep(10);
-//							}
-//						}
-
-						
-//À´»ØÒÆ¶¯					while(d==1){
-//							map1303.N[0].x--;
-//							sleep(10);
-//							if(map1303.N[0].x<0){
-//								d=0;
-//							}
-//						}
-//						while(d==0){
-//							map1303.N[0].x++;
-//							sleep(10);
-//							if(map1303.N[0].x>600){
-//								d=1;
-//							}
-//						}
-//					} catch (InterruptedException e) {
-//						// TODO Auto-generated catch block
-//						e.printStackTrace();
-//					}
-//				}
-//			}
-//		}.start();
+		new Thread(){
+		public void run() {
+			int d=1;
+			while(true){
+							while(d==1){
+							map1307.N[0].x--;
+							try {
+								sleep(10);
+							} catch (InterruptedException e) {
+								// TODO Auto-generated catch block
+								e.printStackTrace();
+							}
+							if(map1307.N[0].x<0){
+								d=0;
+							}
+						}
+						while(d==0){
+							map1307.N[0].x++;
+							try {
+								sleep(10);
+							} catch (InterruptedException e) {
+								// TODO Auto-generated catch block
+								e.printStackTrace();
+							}
+							if(map1307.N[0].x>600){
+								d=1;
+							}
+						}
+					
+			}
+			}
+		}.start();
 	}
 	public MainFrame(){
 		init();

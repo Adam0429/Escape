@@ -27,6 +27,8 @@ public class hero extends Thread implements Serializable{
 	transient Image img = new ImageIcon(this.getClass().getResource("./hero.png")).getImage();
 	transient Image imgleft = new ImageIcon(this.getClass().getResource("./heroleft.gif")).getImage();
 	transient Image imgright = new ImageIcon(this.getClass().getResource("./heroright.gif")).getImage();
+	transient Image imgleftfly = new ImageIcon(this.getClass().getResource("./heroleftfly.png")).getImage();
+	transient Image imgrightfly = new ImageIcon(this.getClass().getResource("./herorightfly.png")).getImage();
 	//ImageIcon icon = new ImageIcon("D:/—ßœ∞/workspace/øŒ…Ë/src/øŒ…Ë/1.png");
 	//Image img1= image1.getImage();
     public void run(){ 
@@ -42,6 +44,10 @@ public class hero extends Thread implements Serializable{
     			this.x=this.x+speed;
     	}
     	if(up){
+    		if(img==imgright)
+    			img=imgrightfly;
+    		else
+    			img=imgleftfly;
     		if(!jumpFlag){
     		new Thread(){  
                 public void run(){  

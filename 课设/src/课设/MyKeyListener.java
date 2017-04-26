@@ -63,18 +63,7 @@ public class MyKeyListener implements KeyListener{
 		 }
 		 if(e.getKeyCode() == KeyEvent.VK_ENTER) {  	
 			 if(mf.Current==mf.mapStart)
-				 mf.Current=mf.map1303;
-			
-//				 ChessBoard chessBoard;
-//				
-//					 chessBoard=new ChessBoard();
-//					 chessBoard.frame.setTitle("Îå×ÓÆå");
-//					 chessBoard.frame.setSize(550, 600);
-//					 chessBoard.frame.getContentPane().add(chessBoard.cb);
-//					 chessBoard.frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);  
-//					 chessBoard.frame.setLocationRelativeTo(null); 
-//					 chessBoard.frame.addMouseListener(chessBoard.mk);
-//					 chessBoard.frame.setVisible(true);		
+				 mf.Current=mf.map1303;	
 		 }
 		 if(e.getKeyCode() == KeyEvent.VK_E) {
 			 Trigger t=new Trigger(mf,h);
