@@ -1,10 +1,13 @@
 package lock;
+
+
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.sql.ResultSet;
 
+import javax.naming.InitialContext;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -18,17 +21,19 @@ public class Drawing extends JPanel{
 	static int[] number = new int[4];
 	public password p = new password();
 	Image Box = new ImageIcon(this.getClass().getResource("./Box.png")).getImage();
-	public Drawing() {
+	/*public static void main(String[] args) {
+		d.init();
+	}*/
+	void init()
+	{
 		a.setTitle("Password");
 		a.setSize(1200,750);
 		a.setResizable(false);
 		a.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		a.setLocationRelativeTo(null); 
-		a.setVisible(true);	// TODO Auto-generated constructor stub
-	}
-	public static void main(String[] args) {
+		a.setLocationRelativeTo(null);
 		a.getContentPane().add(d);
 		a.addMouseListener(mm);
+		a.setVisible(true);	
 	}
 	public void paint(Graphics g)
 	{
@@ -49,6 +54,7 @@ public class Drawing extends JPanel{
 				g.setColor(Color.BLACK);
 				g.drawImage(Box,200, 200, 558,202, this);
 				g.drawString("Success",400,300);
+				System.out.println(true);
 			}
 		}
 	}

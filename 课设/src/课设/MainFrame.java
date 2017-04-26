@@ -31,16 +31,18 @@ public class MainFrame extends JPanel implements Serializable {//¼Ì³ĞjpanelÀàµÄÔ
 	 * map1303,×îºóÒç³ö,ÓÉ´ËÅÅ³öÕâÖÖ·½·¨.ºóÀ´Ö»ÄÜĞÂ½¨Ò»¸öÀà×¨ÃÅÓÃÀ´newÃ¿¸ömap,È»ºó°ÑmapµÄ¶ÔÏó´«µ½destinationÀïÃæ,Õâ¸ö·½·¨»¹ÊÇ²»ĞĞ*/
 	public static Map mapCorridor1=new MapCorridor1(mf,h);
 	public static Map mapCorridor2=new MapCorridor2(mf,h);
+	public static Map mapMaster=new MapMaster(mf, h);
 	public static Map mapComputer=new MapComputer(mf,h);
 	public static Map mapToilet=new MapToilet(mf,h);
 	public static Map mapIntroduce=new MapIntroduce(mf,h);
-	public static Map Current=mapCorridor2;
+	public static Map Current=map1303;
 	public static boolean isOver=false;
 	public static MyKeyListener mk=new MyKeyListener(mf,h);
 	public static MyMouseListener mm=new MyMouseListener(mf,h);
 	Image TalkBox = new ImageIcon(this.getClass().getResource("./TalkBox.png")).getImage();
 	//ÓÃÕâÖÖµ¼Èë·½Ê½µ¼ÈëÍ¼Æ¬£¬¿ÉÒÔ½«ÔÚ°üÀïµÄÍ¼Æ¬ÓÃ./Â·¾¶À´±íÊ¾£¬¶øicon.getimage()²»ĞĞ
 	public static boolean dialog=false;//ÓÃÀ´¿ØÖÆÍ¬Ê±Ö»´æÔÚÒ»¸ö¶Ô»°
+	public static int session=0;
 	public static void main(String[] Args){
 		h.start();
 		frame.setTitle("Escape");
@@ -142,10 +144,6 @@ public class MainFrame extends JPanel implements Serializable {//¼Ì³ĞjpanelÀàµÄÔ
 				g.drawImage(TalkBox,300, 500, 600, 200,this);
 				g.drawString("½¿½¿£ºÄãµÄµçÄÔÉÏÃæºÃÏñÓĞÊ²Ã´ĞÅÏ¢....?",330,600);
 			}
-			if(map1303.T[0].state==1){
-				//mf.Current=
-				System.out.println("22dsdsd");
-			}
 			g.setColor(Color.BLUE);
 			g.setFont(new Font("»ªÎÄ²ÊÔÆ", Font.BOLD, 25));
 			//g.drawString("Hero"+Current, 50, 50);
@@ -234,8 +232,23 @@ public class MainFrame extends JPanel implements Serializable {//¼Ì³ĞjpanelÀàµÄÔ
 			g.setColor(Color.BLACK);
 			g.setColor(Color.BLUE);
 			g.setFont(new Font("»ªÎÄ²ÊÔÆ", Font.BOLD, 25));
-			//g.drawString("Hero"+Current, 50, 50);
 		}
+		
+		else if(Current==mapMaster){
+			g.drawImage(Current.image,Current.x,Current.y,Current.width,Current.height,this);
+			g.drawImage(h.stateimage, 0, 0, this);
+			while(mapMaster.N[i]!=null){
+				g.drawImage(mapMaster.N[i].img1, mapMaster.N[i].x, mapMaster.N[i].y,mapMaster.N[i].width,mapMaster.N[i].height,this);
+				i++;
+			}
+			i=0;
+			g.drawImage(h.img,h.x,h.y,h.width,h.height,this);
+			g.setFont(new Font("¿¬Ìå", Font.BOLD, 25));
+			g.setColor(Color.BLACK);
+			g.setColor(Color.BLUE);
+			g.setFont(new Font("»ªÎÄ²ÊÔÆ", Font.BOLD, 25));
+		}
+		
 		else if(Current==mapCorridor1){
 			g.drawImage(Current.image,Current.x,Current.y,Current.width,Current.height,this);
 			g.drawImage(h.img,h.x,h.y,h.width,h.height,this);

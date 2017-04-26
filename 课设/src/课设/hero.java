@@ -10,7 +10,6 @@ import javax.swing.ImageIcon;
 public class hero extends Thread implements Serializable{
 	int x=0;
 	int y=400;							
-	
 	transient Image stateimage = new ImageIcon(this.getClass().getResource("./×´Ì¬Ìõ.png")).getImage();
 	int speed=3;
 	int jumpspeed=1;

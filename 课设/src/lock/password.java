@@ -1,8 +1,12 @@
 package lock;
 
+import java.awt.Image;
 import java.awt.Point;
 import java.awt.Rectangle;
+import java.awt.RenderingHints.Key;
+
 import javax.swing.ImageIcon;
+import javax.swing.text.StyledEditorKit.ForegroundAction;
 
 public class password extends picture{
 	static int number = 0;

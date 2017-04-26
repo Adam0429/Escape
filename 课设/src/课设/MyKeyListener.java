@@ -48,6 +48,10 @@ public class MyKeyListener implements KeyListener{
 				 mf.Current=mf.mapCorridor2;
 				 h.x=900;
 			 }
+			 if(mf.Current==mf.mapCorridor2&&h.x<100){
+				 mf.Current=mf.mapMaster;
+				 h.x=900;
+			 }
 			 if(mf.Current==mf.mapToilet&&h.x<100){
 				 mf.Current=mf.mapCorridor1;
 				 h.x=900;

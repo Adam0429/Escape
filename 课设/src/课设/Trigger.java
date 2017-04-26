@@ -5,6 +5,8 @@ import java.awt.Rectangle;
 import java.io.Serializable;
 import java.util.logging.Handler;
 
+import javax.net.ssl.SSLSession;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import pintugame.*;
 
@@ -154,6 +156,25 @@ public class Trigger implements Serializable{
 			}
 		}
 		
+		else if(mf.Current==mf.mapMaster)
+			switch(destination){
+			case 0:
+				h.x=0;
+				mf.Current=mf.mapCorridor2;
+				System.out.println(destination);
+				break;
+			case 1:
+				h.x=1069;
+				mf.Current=mf.map1307;
+				System.out.println(destination);
+				break;
+			case 2:
+				h.x=0;
+				mf.Current=mf.map1308;
+				System.out.println(destination);
+				break;
+		}
+		
 		else if(mf.Current==mf.mapCorridor1)
 			switch(destination){
 			case 0:
@@ -219,14 +240,23 @@ public class Trigger implements Serializable{
 			}
 		}
 	}
+	
 	public static void use(NPC n,int x,int y){		
 		Rectangle r=new Rectangle(n.x,n.y,n.width,n.height);
 		if(r.contains(x, y)){
 			if(n instanceof Map1303Computer){
 				mf.Current=mf.mapComputer;
 			}
-			n.function(h);
-			
+			else if(n instanceof Map1304Hammer){
+				mf.map1304.image=mf.map1304.image2;
+				mf.map1304.T[0]=null;
+				mf.session=1;
+			}
+			else if(n instanceof MapToiletHose&&mf.session==1){
+				mf.mapToilet.image=mf.mapToilet.image2;
+				mf.session=2;
+			}
+				n.function(h);
 		}
 	}
 	
