@@ -34,7 +34,7 @@ public class MainFrame extends JPanel implements Serializable {//ºÃ≥–jpanel¿‡µƒ‘
 	public static Map mapComputer=new MapComputer(mf,h);
 	public static Map mapToilet=new MapToilet(mf,h);
 	public static Map mapIntroduce=new MapIntroduce(mf,h);
-	public static Map Current=mapStart;
+	public static Map Current=mapCorridor2;
 	public static boolean isOver=false;
 	public static MyKeyListener mk=new MyKeyListener(mf,h);
 	public static MyMouseListener mm=new MyMouseListener(mf,h);
@@ -53,10 +53,10 @@ public class MainFrame extends JPanel implements Serializable {//ºÃ≥–jpanel¿‡µƒ‘
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);  
         frame.setLocationRelativeTo(null); 
 		frame.setVisible(true);	
-		new Thread(){
-			public void run() {
-				PictureMainFrame frame =new PictureMainFrame();
-			}
+//		new Thread(){
+//			public void run() {
+//				PictureMainFrame frame =new PictureMainFrame();
+//			}
 //				int d=0;	
 //				while (true) {	
 //					
@@ -98,7 +98,7 @@ public class MainFrame extends JPanel implements Serializable {//ºÃ≥–jpanel¿‡µƒ‘
 //					}
 //				}
 //			}
-		}.start();
+//		}.start();
 	}
 	public MainFrame(){
 		init();
@@ -186,8 +186,8 @@ public class MainFrame extends JPanel implements Serializable {//ºÃ≥–jpanel¿‡µƒ‘
 		else if(Current==map1306){
 			g.drawImage(Current.image,Current.x,Current.y,Current.width,Current.height,this);
 			g.drawImage(h.stateimage, 0, 0, this);
-			while(map1304.N[i]!=null){
-				g.drawImage(map1304.N[i].img1, map1304.N[i].x, map1304.N[i].y,map1304.N[i].width,map1304.N[i].height,this);
+			while(map1306.N[i]!=null){
+				g.drawImage(map1306.N[i].img1, map1306.N[i].x, map1306.N[i].y,map1306.N[i].width,map1306.N[i].height,this);
 				i++;
 			}
 			i=0;
@@ -200,16 +200,22 @@ public class MainFrame extends JPanel implements Serializable {//ºÃ≥–jpanel¿‡µƒ‘
 		}
 		
 		else if(Current==map1307){
+			g.drawImage(map1307.N[0].img1, 0, 0, null);
 			g.drawImage(Current.image,Current.x,Current.y,Current.width,Current.height,this);
 			g.drawImage(h.stateimage, 0, 0, this);
-			while(map1304.N[i]!=null){
-				g.drawImage(map1304.N[i].img1, map1304.N[i].x, map1304.N[i].y,map1304.N[i].width,map1304.N[i].height,this);
+			i=0;
+			while(map1307.N[i]!=null){
+				g.drawImage(map1307.N[i].img1, map1307.N[i].x, map1307.N[i].y,map1307.N[i].width,map1307.N[i].height,this);
 				i++;
 			}
 			i=0;
 			g.drawImage(h.img,h.x,h.y,h.width,h.height,this);
 			g.setFont(new Font("ø¨ÃÂ", Font.BOLD, 25));
 			g.setColor(Color.BLACK);
+			if(map1307.N[0].state==1){
+				g.drawImage(TalkBox,300, 500, 600, 200,this);
+				g.drawString("¿Ó”Í≥Ω£∫ƒ„¿¥Œ“√«Àﬁ…·◊ˆ ≤√¥",330,600);
+			}
 			g.setColor(Color.BLUE);
 			g.setFont(new Font("ª™Œƒ≤ ‘∆", Font.BOLD, 25));
 			//g.drawString("Hero"+Current, 50, 50);
@@ -218,8 +224,8 @@ public class MainFrame extends JPanel implements Serializable {//ºÃ≥–jpanel¿‡µƒ‘
 		else if(Current==map1308){
 			g.drawImage(Current.image,Current.x,Current.y,Current.width,Current.height,this);
 			g.drawImage(h.stateimage, 0, 0, this);
-			while(map1304.N[i]!=null){
-				g.drawImage(map1304.N[i].img1, map1304.N[i].x, map1304.N[i].y,map1304.N[i].width,map1304.N[i].height,this);
+			while(map1308.N[i]!=null){
+				g.drawImage(map1308.N[i].img1, map1308.N[i].x, map1308.N[i].y,map1308.N[i].width,map1308.N[i].height,this);
 				i++;
 			}
 			i=0;

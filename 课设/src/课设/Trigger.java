@@ -92,6 +92,68 @@ public class Trigger implements Serializable{
 			}
 		}
 		
+		else if(mf.Current==mf.map1306){
+			switch(destination){
+				case 0:
+					h.x=1041;
+					mf.Current=mf.mapCorridor2;
+					System.out.println(destination);
+					break;
+				case 1:
+					h.x=1041;
+					mf.Current=mf.mapCorridor2;
+					System.out.println(destination);
+					break;
+				case 2:
+					h.x=1041;
+					mf.Current=mf.mapCorridor2;
+					System.out.println(destination);
+					break;
+			}
+		}
+		
+
+		else if(mf.Current==mf.map1307){
+			switch(destination){
+				case 0:
+					h.x=688;
+					mf.Current=mf.mapCorridor2;
+					System.out.println(destination);
+					break;
+				case 1:
+					h.x=953;
+					mf.Current=mf.mapCorridor2;
+					System.out.println(destination);
+					break;
+				case 2:
+					h.x=953;
+					mf.Current=mf.mapCorridor2;
+					System.out.println(destination);
+					break;
+			}
+		}
+		
+
+		else if(mf.Current==mf.map1308){
+			switch(destination){
+				case 0:
+					h.x=289;
+					mf.Current=mf.mapCorridor2;
+					System.out.println(destination);
+					break;
+				case 1:
+					h.x=289;
+					mf.Current=mf.mapCorridor2;
+					System.out.println(destination);
+					break;
+				case 2:
+					h.x=289;
+					mf.Current=mf.mapCorridor2;
+					System.out.println(destination);
+					break;
+			}
+		}
+		
 		else if(mf.Current==mf.mapCorridor1)
 			switch(destination){
 			case 0:
@@ -111,6 +173,25 @@ public class Trigger implements Serializable{
 				break;
 		}
 	
+		else if(mf.Current==mf.mapCorridor2)
+			switch(destination){
+			case 0:
+				h.x=0;
+				mf.Current=mf.map1306;
+				System.out.println(destination);
+				break;
+			case 1:
+				h.x=1069;
+				mf.Current=mf.map1307;
+				System.out.println(destination);
+				break;
+			case 2:
+				h.x=0;
+				mf.Current=mf.map1308;
+				System.out.println(destination);
+				break;
+		}
+		
 	}
 	public static void check(NPC n){			
 		Rectangle r=new Rectangle(n.x,n.y,n.width,n.height);

@@ -11,7 +11,8 @@ public class MapCorridor2 extends Map{
 		height=750;
 		width=1200;
 		image = new ImageIcon(this.getClass().getResource("./MapCorridor2.png")).getImage();
-		//door[0]=new Rectangle(918,347,257,121);				
-		//destination[0]=mf.map1303;
+		door[0]=new Rectangle(876,380,120,150);				
+		door[1]=new Rectangle(511,345,150,471);
+		door[2]=new Rectangle(121,343,150,471);
 	}
 }

@@ -15,6 +15,7 @@ public class Map1307 extends Map{
 		door[0]=new Rectangle(950,60,150,471);
 		door[1]=new Rectangle(950,60,150,471);
 		door[2]=new Rectangle(950,60,150,471);
+		N[0]=new LYC();
 		/*MapSet ms=new MapSet(mf,h);
 		if(ms.mapCorridor1==null){	//这段之前用来测试空指针问题
 			System.out.println("create destination");

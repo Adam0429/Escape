@@ -115,7 +115,7 @@ public void mousePressed(MouseEvent e) {
 	this.repaint();
 	//win
 	if(this.isFinish()){
-	JOptionPane.showMessageDialog(this, "pass!");
+	JOptionPane.showMessageDialog(this, "娱乐一下,并没有什么用~");
 	for(int i=0;i<8;i++){
 		cell[i].removeMouseListener(this);
 	}
