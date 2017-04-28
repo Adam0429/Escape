@@ -34,11 +34,19 @@ public class hero extends Thread implements Serializable{
     public void run(){ 
     	while(true){
     	if(left){
+    		if(img==imgleftfly)
+    			speed=10;
+    		else
+    			speed=3;
     		img=imgleft;
     		if(this.x>0)
     			this.x=this.x-speed;
     	}
     	if(right){
+    		if(img==imgrightfly)
+    			speed=10;
+    		else
+    			speed=3;
     		img=imgright;
     		if(this.x<1120)
     			this.x=this.x+speed;

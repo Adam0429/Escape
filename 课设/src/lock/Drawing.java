@@ -21,10 +21,7 @@ public class Drawing extends JPanel{
 	static int[] number = new int[4];
 	public password p = new password();
 	Image Box = new ImageIcon(this.getClass().getResource("./Box.png")).getImage();
-	/*public static void main(String[] args) {
-		d.init();
-	}*/
-	void init()
+	public void init()
 	{
 		a.setTitle("Password");
 		a.setSize(1200,750);
@@ -47,15 +44,18 @@ public class Drawing extends JPanel{
 		}
 		if(d.time==4)
 		{
-			boolean a = check();
-			if(a)
+			boolean s = check();
+			if(s)
 			{
 				g.setFont(new Font("¿¬Ìå", Font.BOLD, 55));
 				g.setColor(Color.BLACK);
 				g.drawImage(Box,200, 200, 558,202, this);
 				g.drawString("Success",400,300);
 				System.out.println(true);
+				over=false;
 			}
+			a.setVisible(false);
+			
 		}
 	}
 	static boolean check()
@@ -70,6 +70,7 @@ public class Drawing extends JPanel{
 			return true;
 		}
 		d.reset(0);
+		a.setVisible(false);
 		return false;
 	}
 	void reset(int base)
