@@ -39,8 +39,8 @@ public class MainFrame extends JPanel implements Serializable {//¼Ì³ĞjpanelÀàµÄÔ
 	public static boolean isOver=false;
 	public static MyKeyListener mk=new MyKeyListener(mf,h);
 	public static MyMouseListener mm=new MyMouseListener(mf,h);
-	Image TalkBox = new ImageIcon(this.getClass().getResource("./TalkBox.png")).getImage();
-	//ÓÃÕâÖÖµ¼Èë·½Ê½µ¼ÈëÍ¼Æ¬£¬¿ÉÒÔ½«ÔÚ°üÀïµÄÍ¼Æ¬ÓÃ./Â·¾¶À´±íÊ¾£¬¶øicon.getimage()²»ĞĞ
+	Image TalkBox = new ImageIcon(this.getClass().getResource("/picture/TalkBox.png")).getImage();
+	//ÓÃÕâÖÖµ¼Èë·½Ê½µ¼ÈëÍ¼Æ¬£¬¿ÉÒÔÊ¹jarÕÒµ½Í¼Æ¬µÄÂ·¾¶
 	public static boolean dialog=false;//ÓÃÀ´¿ØÖÆÍ¬Ê±Ö»´æÔÚÒ»¸ö¶Ô»°
 	public static int session=0;
 	public static void main(String[] Args){

@@ -10,6 +10,6 @@ public class MapIntroduce extends Map{
 		y=0;
 		height=750;
 		width=1200;
-		image = new ImageIcon(this.getClass().getResource("./Introduce.png")).getImage();
+		image = new ImageIcon(this.getClass().getResource("/picture/Introduce.png")).getImage();
 	}
 }

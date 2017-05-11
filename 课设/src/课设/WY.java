@@ -8,7 +8,7 @@ public class WY extends NPC{
 		y=385;
 		width=100;
 		height=180;
-		img1=new ImageIcon(this.getClass().getResource("./WY.png")).getImage();
+		img1=new ImageIcon(this.getClass().getResource("/picture/WY.png")).getImage();
 	}
 	
 	public void function() {

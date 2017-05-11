@@ -16,7 +16,7 @@ public class password extends picture{
 		y=100;
 		height=512;
 		width=512;
-		img=new ImageIcon(this.getClass().getResource("./timg.jpg")).getImage();
+		img=new ImageIcon(this.getClass().getResource("/picture/timg.jpg")).getImage();
 		int a=1;
 		for(int j=0;j<3;j++)
 		{

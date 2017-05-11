@@ -10,6 +10,6 @@ public class MapComputer extends Map{
 		y=0;
 		height=750;
 		width=1200;
-		image = new ImageIcon(this.getClass().getResource("./Computer.png")).getImage();
+		image = new ImageIcon(this.getClass().getResource("/picture/Computer.png")).getImage();
 	}
 }

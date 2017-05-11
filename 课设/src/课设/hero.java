@@ -10,7 +10,7 @@ import javax.swing.ImageIcon;
 public class hero extends Thread implements Serializable{
 	int x=0;
 	int y=400;							
-	transient Image stateimage = new ImageIcon(this.getClass().getResource("./状态条.png")).getImage();
+	transient Image stateimage = new ImageIcon(this.getClass().getResource("/picture/状态条.png")).getImage();
 	int speed=3;
 	int jumpspeed=1;
 	int downspeed=2;				
@@ -24,44 +24,44 @@ public class hero extends Thread implements Serializable{
 	public boolean left=false,right=false,down=false,up=false; 
 	//java.net.URL imgURL1 = hero.class.getResource("1.png");
     //ImageIcon image1 = new ImageIcon(imgURL1);
-	transient Image img = new ImageIcon(this.getClass().getResource("./hero.png")).getImage();
-	transient Image imgleft = new ImageIcon(this.getClass().getResource("./heroleft.gif")).getImage();
-	transient Image imgright = new ImageIcon(this.getClass().getResource("./heroright.gif")).getImage();
-	transient Image imgleftfly = new ImageIcon(this.getClass().getResource("./heroleftfly.png")).getImage();
-	transient Image imgrightfly = new ImageIcon(this.getClass().getResource("./herorightfly.png")).getImage();
+	transient Image img = new ImageIcon(this.getClass().getResource("/picture/hero.png")).getImage();
+	transient Image imgleft = new ImageIcon(this.getClass().getResource("/picture/heroleft.gif")).getImage();
+	transient Image imgright = new ImageIcon(this.getClass().getResource("/picture/heroright.gif")).getImage();
+	transient Image imgleftfly = new ImageIcon(this.getClass().getResource("/picture/heroleftfly.png")).getImage();
+	transient Image imgrightfly = new ImageIcon(this.getClass().getResource("/picture/herorightfly.png")).getImage();
 	//ImageIcon icon = new ImageIcon("D:/学习/workspace/课设/src/课设/1.png");
 	//Image img1= image1.getImage();
     public void run(){ 
     	while(true){
-    	if(left){
-    		if(img==imgleftfly)
-    			speed=10;
-    		else
-    			speed=3;
-    		img=imgleft;
-    		if(this.x>0)
-    			this.x=this.x-speed;
-    	}
-    	if(right){
-    		if(img==imgrightfly)
-    			speed=10;
-    		else
-    			speed=3;
-    		img=imgright;
-    		if(this.x<1120)
-    			this.x=this.x+speed;
-    	}
-    	if(up){
-    		if(img==imgright)
-    			img=imgrightfly;
-    		else
-    			img=imgleftfly;
-    		if(!jumpFlag){
-    		new Thread(){  
-                public void run(){  
-                    jump();  
-                }  
-            }.start();  
+    		if(left){
+    			if(img==imgleftfly)
+    				speed=10;
+    			else
+    				speed=3;
+    			img=imgleft;
+    			if(this.x>0)
+    				this.x=this.x-speed;
+    		}
+    		if(right){
+    			if(img==imgrightfly)
+    				speed=10;
+    			else
+    				speed=3;
+    			img=imgright;
+    			if(this.x<1120)
+    				this.x=this.x+speed;
+    		}
+    		if(up){
+    			if(img==imgright)
+    				img=imgrightfly;
+    			else
+    				img=imgleftfly;
+    			if(!jumpFlag){
+    				new Thread(){  
+    				public void run(){  
+    					jump();  
+    				}  
+    			}.start();  
     		}
     	}
     	if(down){

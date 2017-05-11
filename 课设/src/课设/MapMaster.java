@@ -10,7 +10,7 @@ public class MapMaster extends Map{
 		y=0;
 		height=750;
 		width=1200;
-		image = new ImageIcon(this.getClass().getResource("./MapMaster.png")).getImage();
+		image = new ImageIcon(this.getClass().getResource("/picture/MapMaster.png")).getImage();
 		door[0]=new Rectangle(950,60,150,471);
 		door[1]=new Rectangle(950,60,150,471);
 		door[2]=new Rectangle(950,60,150,471);

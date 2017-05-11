@@ -8,7 +8,7 @@ public class WFH extends NPC{
 		y=340;
 		width=230;
 		height=230;
-		img1=new ImageIcon(this.getClass().getResource("./WFH2.png")).getImage();
+		img1=new ImageIcon(this.getClass().getResource("/picture/WFH2.png")).getImage();
 	}
 	
 	public void function(hero h) {

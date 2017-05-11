@@ -20,7 +20,7 @@ public class Drawing extends JPanel{
 	public static MouseListener mm = new MouseListener(d);
 	static int[] number = new int[4];
 	public password p = new password();
-	Image Box = new ImageIcon(this.getClass().getResource("./Box.png")).getImage();
+	Image Box = new ImageIcon(this.getClass().getResource("/picture/Box.png")).getImage();
 	public void init()
 	{
 		a.setTitle("Password");

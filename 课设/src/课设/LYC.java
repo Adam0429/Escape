@@ -8,7 +8,7 @@ public class LYC extends NPC{
 		y=385;
 		width=150;
 		height=180;
-		img1=new ImageIcon(this.getClass().getResource("./LYC.gif")).getImage();
+		img1=new ImageIcon(this.getClass().getResource("/picture/LYC.gif")).getImage();
 	}
 	
 	public void function(hero h) {

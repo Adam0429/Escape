@@ -16,7 +16,7 @@ public class PictureCanvas extends JPanel implements MouseListener {//guide the 
 		cell=new Cell[9];
 		for(int i=0;i<3;i++){
 			for(int j=0;j<3;j++){
-				ImageIcon icon=new ImageIcon("picture\\picture"+(i*3+j+1)+".jpg");
+				ImageIcon icon=new ImageIcon(this.getClass().getResource("/picture/picture"+(i*3+j+1)+".jpg"));
 				cell[i*3+j]=new Cell(icon);
 				cell[i*3+j].setLocation(j*150+20, i*150+20);
 				this.add(cell[i*3+j]);

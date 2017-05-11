@@ -11,8 +11,8 @@ public class Map1304 extends Map{
 		y=0;
 		height=750;
 		width=1200;
-		image = new ImageIcon(this.getClass().getResource("./Map1304.png")).getImage();
-		image2=new ImageIcon(this.getClass().getResource("./Map1304nohammer.png")).getImage();
+		image = new ImageIcon(this.getClass().getResource("/picture/Map1304.png")).getImage();
+		image2=new ImageIcon(this.getClass().getResource("/picture/Map1304nohammer.png")).getImage();
 		door[0]=new Rectangle(0,60,150,471);
 		door[1]=new Rectangle(0,60,150,471);
 		door[2]=new Rectangle(0,60,150,471);

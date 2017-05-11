@@ -8,7 +8,7 @@ public class CYX extends NPC{
 		y=365;
 		width=100;
 		height=200;
-		img1=new ImageIcon(this.getClass().getResource("./CYX.png")).getImage();
+		img1=new ImageIcon(this.getClass().getResource("/picture/CYX.png")).getImage();
 	}
 	
 	public void function() {

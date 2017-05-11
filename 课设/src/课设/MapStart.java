@@ -10,6 +10,6 @@ public class MapStart extends Map{
 		y=0;
 		height=720;
 		width=1200;
-		image=new ImageIcon(this.getClass().getResource("./MapStart.png")).getImage();
+		image=new ImageIcon(this.getClass().getResource("/picture/MapStart.png")).getImage();
 	}
 }

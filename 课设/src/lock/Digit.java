@@ -9,6 +9,6 @@ public class Digit extends picture{
 		y=y1;
 		height=41;
 		width=36;
-		img=new ImageIcon(this.getClass().getResource("./abc.jpg")).getImage();
+		img=new ImageIcon(this.getClass().getResource("/picture/abc.jpg")).getImage();
 	}
 }
