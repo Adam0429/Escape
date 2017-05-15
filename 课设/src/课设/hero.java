@@ -35,7 +35,7 @@ public class hero extends Thread implements Serializable{
     	while(true){
     		if(left){
     			if(img==imgleftfly)
-    				speed=10;
+    				speed=15;
     			else
     				speed=3;
     			img=imgleft;
@@ -44,7 +44,7 @@ public class hero extends Thread implements Serializable{
     		}
     		if(right){
     			if(img==imgrightfly)
-    				speed=10;
+    				speed=15;
     			else
     				speed=3;
     			img=imgright;

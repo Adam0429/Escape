@@ -1,5 +1,6 @@
 package ¿ÎÉè;
 
+import java.awt.Button;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
@@ -8,11 +9,13 @@ import java.io.Serializable;
 import java.util.Timer;
 import java.util.TimerTask;
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import pintugame.*;
-public class MainFrame extends JPanel implements Serializable {//¼Ì³ĞjpanelÀàµÄÔ­ÒòÊÇ,ËüµÄrepaint·½·¨·Ç³£·½±ã
+public class MainFrame extends JPanel {//¼Ì³ĞjpanelÀàµÄÔ­ÒòÊÇ,ËüµÄrepaint·½·¨·Ç³£·½±ã
 	//ÓĞ¸öÎÊÌâ£º´ò°ü³Éjarºó£¬eclipseÏÂ¿ÉÒÔÏÔÊ¾µÄÍ¼Æ¬£¬jarÎŞ·¨ÏÔÊ¾£¬Ó¦¸ÃÊÇÍ¼Æ¬Â·¾¶µÄÎÊÌâ
 	public static JFrame frame=new JFrame();
 	public static MainFrame mf=new MainFrame();
@@ -40,7 +43,7 @@ public class MainFrame extends JPanel implements Serializable {//¼Ì³ĞjpanelÀàµÄÔ
 	public static MyKeyListener mk=new MyKeyListener(mf,h);
 	public static MyMouseListener mm=new MyMouseListener(mf,h);
 	Image TalkBox = new ImageIcon(this.getClass().getResource("/picture/TalkBox.png")).getImage();
-	//ÓÃÕâÖÖµ¼Èë·½Ê½µ¼ÈëÍ¼Æ¬£¬¿ÉÒÔÊ¹jarÕÒµ½Í¼Æ¬µÄÂ·¾¶
+	//use this method,jar can find the path of picture correctly
 	public static boolean dialog=false;//ÓÃÀ´¿ØÖÆÍ¬Ê±Ö»´æÔÚÒ»¸ö¶Ô»°
 	public static int session=0;
 	public static void main(String[] Args){
@@ -49,7 +52,8 @@ public class MainFrame extends JPanel implements Serializable {//¼Ì³ĞjpanelÀàµÄÔ
 		frame.setSize(1200, 750);
 		frame.setResizable(false);//¹Ì¶¨´°¿Ú´óĞ¡
 		frame.getContentPane().add(mf);
-		//frame.getContentPane().setLayout(null);//ÉèÖÃ¿ò¼Ü²¼¾ÖÄ£Ê½Îª¿Õ£¬Ö»ÓĞÕâÑù£¬²ÅÄÜÖªµÀÍ¼Æ¬µÄÕæÕıÎ»ÖÃ  
+		mf.setBounds(0, 0, 1200, 750);
+		frame.getContentPane().setLayout(null);//ÉèÖÃ¿ò¼Ü²¼¾ÖÄ£Ê½Îª¿Õ£¬Ö»ÓĞÕâÑù£¬²ÅÄÜÖªµÀ¿Ø¼şµÄÕæÕıÎ»ÖÃ 
 		frame.addKeyListener(mk);
 		frame.addMouseListener(mm);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);  
@@ -58,19 +62,19 @@ public class MainFrame extends JPanel implements Serializable {//¼Ì³ĞjpanelÀàµÄÔ
 		new Thread(){
 		public void run() {
 			int d=1;
-			while(true){
-							while(d==1){
-							map1307.N[0].x--;
-							try {
-								sleep(10);
-							} catch (InterruptedException e) {
+				while(true){
+						while(d==1){
+						map1307.N[0].x--;
+						try {
+							sleep(10);
+						} catch (InterruptedException e) {
 								// TODO Auto-generated catch block
 								e.printStackTrace();
-							}
-							if(map1307.N[0].x<0){
-								d=0;
-							}
 						}
+						if(map1307.N[0].x<0){
+							d=0;
+						}
+					}
 						while(d==0){
 							map1307.N[0].x++;
 							try {
@@ -109,6 +113,7 @@ public class MainFrame extends JPanel implements Serializable {//¼Ì³ĞjpanelÀàµÄÔ
 		}
 		else if(Current==map1303){
 			g.drawImage(Current.image,Current.x,Current.y,Current.width,Current.height,this);
+			//ths map must paint first,or it will cover other picture
 			g.drawImage(h.stateimage, 0, 0, this);
 			while(map1303.N[i]!=null){
 				g.drawImage(map1303.N[i].img1, map1303.N[i].x, map1303.N[i].y,map1303.N[i].width,map1303.N[i].height,this);
@@ -131,10 +136,11 @@ public class MainFrame extends JPanel implements Serializable {//¼Ì³ĞjpanelÀàµÄÔ
 				g.drawString("½¿½¿£ºÄãµÄµçÄÔÉÏÃæºÃÏñÓĞÊ²Ã´ĞÅÏ¢....?",330,600);
 			}
 			g.setColor(Color.BLUE);
-			g.setFont(new Font("»ªÎÄ²ÊÔÆ", Font.BOLD, 25));
+			//g.setFont(new Font("»ªÎÄ²ÊÔÆ", Font.BOLD, 25));
 			//g.drawString("Hero"+Current, 50, 50);
 		}
 		else if(Current==map1304){
+			
 			g.drawImage(Current.image,Current.x,Current.y,Current.width,Current.height,this);
 			g.drawImage(h.stateimage, 0, 0, this);
 			while(map1304.N[i]!=null){
@@ -147,11 +153,13 @@ public class MainFrame extends JPanel implements Serializable {//¼Ì³ĞjpanelÀàµÄÔ
 			g.setColor(Color.BLACK);
 			g.setColor(Color.BLUE);
 			g.setFont(new Font("»ªÎÄ²ÊÔÆ", Font.BOLD, 25));
-			//g.drawString("Hero"+Current, 50, 50);
+			
 		}
 		
 		else if(Current==map1305){
+			
 			g.drawImage(Current.image,Current.x,Current.y,Current.width,Current.height,this);
+			g.drawImage(h.stateimage, 0, 0, this);
 			g.drawImage(h.stateimage, 0, 0, this);
 			while(map1305.N[i]!=null){
 				g.drawImage(map1305.N[i].img1, map1305.N[i].x, map1305.N[i].y,map1305.N[i].width,map1305.N[i].height,this);
@@ -163,12 +171,14 @@ public class MainFrame extends JPanel implements Serializable {//¼Ì³ĞjpanelÀàµÄÔ
 			g.setColor(Color.BLACK);
 			g.setColor(Color.BLUE);
 			g.setFont(new Font("»ªÎÄ²ÊÔÆ", Font.BOLD, 25));
-			//g.drawString("Hero"+Current, 50, 50);
+		
 		}
 		
 		
 		else if(Current==map1306){
+			
 			g.drawImage(Current.image,Current.x,Current.y,Current.width,Current.height,this);
+			g.drawImage(h.stateimage, 0, 0, this);
 			g.drawImage(h.stateimage, 0, 0, this);
 			while(map1306.N[i]!=null){
 				g.drawImage(map1306.N[i].img1, map1306.N[i].x, map1306.N[i].y,map1306.N[i].width,map1306.N[i].height,this);
@@ -180,11 +190,13 @@ public class MainFrame extends JPanel implements Serializable {//¼Ì³ĞjpanelÀàµÄÔ
 			g.setColor(Color.BLACK);
 			g.setColor(Color.BLUE);
 			g.setFont(new Font("»ªÎÄ²ÊÔÆ", Font.BOLD, 25));
-			//g.drawString("Hero"+Current, 50, 50);
+			
 		}
 		
 		else if(Current==map1307){
+			
 			g.drawImage(map1307.N[0].img1, 0, 0, null);
+			g.drawImage(h.stateimage, 0, 0, this);
 			g.drawImage(Current.image,Current.x,Current.y,Current.width,Current.height,this);
 			g.drawImage(h.stateimage, 0, 0, this);
 			i=0;
@@ -202,11 +214,13 @@ public class MainFrame extends JPanel implements Serializable {//¼Ì³ĞjpanelÀàµÄÔ
 			}
 			g.setColor(Color.BLUE);
 			g.setFont(new Font("»ªÎÄ²ÊÔÆ", Font.BOLD, 25));
-			//g.drawString("Hero"+Current, 50, 50);
+			
 		}
 		
 		else if(Current==map1308){
+			
 			g.drawImage(Current.image,Current.x,Current.y,Current.width,Current.height,this);
+			g.drawImage(h.stateimage, 0, 0, this);
 			g.drawImage(h.stateimage, 0, 0, this);
 			while(map1308.N[i]!=null){
 				g.drawImage(map1308.N[i].img1, map1308.N[i].x, map1308.N[i].y,map1308.N[i].width,map1308.N[i].height,this);
@@ -221,7 +235,9 @@ public class MainFrame extends JPanel implements Serializable {//¼Ì³ĞjpanelÀàµÄÔ
 		}
 		
 		else if(Current==mapMaster){
+			
 			g.drawImage(Current.image,Current.x,Current.y,Current.width,Current.height,this);
+			g.drawImage(h.stateimage, 0, 0, this);
 			g.drawImage(h.stateimage, 0, 0, this);
 			while(mapMaster.N[i]!=null){
 				g.drawImage(mapMaster.N[i].img1, mapMaster.N[i].x, mapMaster.N[i].y,mapMaster.N[i].width,mapMaster.N[i].height,this);
@@ -236,25 +252,31 @@ public class MainFrame extends JPanel implements Serializable {//¼Ì³ĞjpanelÀàµÄÔ
 		}
 		
 		else if(Current==mapCorridor1){
+			
 			g.drawImage(Current.image,Current.x,Current.y,Current.width,Current.height,this);
+			g.drawImage(h.stateimage, 0, 0, this);
 			g.drawImage(h.img,h.x,h.y,h.width,h.height,this);
 			g.setColor(Color.BLUE);
 			g.setFont(new Font("»ªÎÄ²ÊÔÆ", Font.BOLD, 25));
-			g.drawString("Hero"+Current, 50, 50);
+			
 		}
 		else if(Current==mapCorridor2){
+			
 			g.drawImage(Current.image,Current.x,Current.y,Current.width,Current.height,this);
+			g.drawImage(h.stateimage, 0, 0, this);
 			g.drawImage(h.img,h.x,h.y,h.width,h.height,this);
 			g.setColor(Color.BLUE);
 			g.setFont(new Font("»ªÎÄ²ÊÔÆ", Font.BOLD, 25));
-			g.drawString("Hero"+Current, 50, 50);
+		
 		}
 		else if(Current==mapToilet){
+			
 			g.drawImage(Current.image,Current.x,Current.y,Current.width,Current.height,this);
+			g.drawImage(h.stateimage, 0, 0, this);
 			g.drawImage(h.img,h.x,h.y,h.width,h.height,this);
 			g.setColor(Color.BLUE);
 			g.setFont(new Font("»ªÎÄ²ÊÔÆ", Font.BOLD, 25));
-			g.drawString("Hero"+Current, 50, 50);
+		
 		}
 	}	
 

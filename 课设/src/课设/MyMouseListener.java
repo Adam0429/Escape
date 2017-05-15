@@ -1,5 +1,6 @@
 package ¿ÎÉè;
 
+import java.awt.Rectangle;
 import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
@@ -13,6 +14,10 @@ public class MyMouseListener implements MouseListener,Serializable{
 		h=MainFrame.h;
 	}
 	public void mouseClicked(MouseEvent e) {
+		Rectangle client=new Rectangle(0, 100, 100, 40);
+		if(client.contains(e.getX(), e.getY())){
+			new Client(mf).go();;
+		}
 		if(mf.Current==mf.mapComputer){
 			mf.Current=mf.map1303;
 		}
