@@ -106,7 +106,7 @@ public class Client {
 			String ip;
 			try {
 				ip = InetAddress.getLocalHost().getHostAddress();
-				pw.println(ip+"说:我在第"+frame.session+"关,地图位置"+frame.Current);
+				pw.println(ip+"说:我在第"+frame.Missoin+"关,地图位置"+frame.Current);
 				pw.flush();
 				tf.requestFocus();//光标进入这个控件中
 			} catch (UnknownHostException e) {

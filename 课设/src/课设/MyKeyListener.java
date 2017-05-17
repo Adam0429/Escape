@@ -4,7 +4,9 @@ import java.awt.Graphics;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.io.Serializable;
+import java.security.spec.DSAGenParameterSpec;
 
+import javax.security.auth.x500.X500Principal;
 import javax.swing.JFrame;
 
 import org.omg.CORBA.Current;
@@ -55,6 +57,19 @@ public class MyKeyListener implements KeyListener{
 			 if(mf.Current==mf.mapToilet&&h.x<100){
 				 mf.Current=mf.mapCorridor1;
 				 h.x=900;
+			 }
+		 }
+		 if(e.getKeyCode() == KeyEvent.VK_DOWN&&h.x>265&&h.y<489){
+			 if(mf.Current==mf.mapCorridor1){
+				 mf.Current=mf.mapLift;
+				
+			 }
+		 }
+		 
+		 if(e.getKeyCode() == KeyEvent.VK_UP){
+			 if(mf.Current==mf.mapLift){
+				 mf.Current=mf.mapCorridor1;
+				
 			 }
 		 }
 		 if(e.getKeyCode() == KeyEvent.VK_SPACE) {  

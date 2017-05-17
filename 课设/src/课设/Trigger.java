@@ -212,7 +212,6 @@ public class Trigger implements Serializable{
 				System.out.println(destination);
 				break;
 		}
-		
 	}
 	public static void check(NPC n){			
 		Rectangle r=new Rectangle(n.x,n.y,n.width,n.height);
@@ -250,11 +249,11 @@ public class Trigger implements Serializable{
 			else if(n instanceof Map1304Hammer){
 				mf.map1304.image=mf.map1304.image2;
 				mf.map1304.T[0]=null;
-				mf.session=1;
+				mf.Missoin=1;
 			}
-			else if(n instanceof MapToiletHose&&mf.session==1){
+			else if(n instanceof MapToiletHose&&mf.Missoin==1){
 				mf.mapToilet.image=mf.mapToilet.image2;
-				mf.session=2;
+				mf.Missoin=2;
 			}
 				n.function(h);
 		}

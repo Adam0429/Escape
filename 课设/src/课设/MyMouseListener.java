@@ -14,7 +14,7 @@ public class MyMouseListener implements MouseListener,Serializable{
 		h=MainFrame.h;
 	}
 	public void mouseClicked(MouseEvent e) {
-		Rectangle client=new Rectangle(0, 100, 100, 40);
+		Rectangle client=new Rectangle(0, 50, 138, 171);
 		if(client.contains(e.getX(), e.getY())){
 			new Client(mf).go();;
 		}

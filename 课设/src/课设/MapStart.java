@@ -4,7 +4,6 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 
 public class MapStart extends Map{
-	JButton jb;
 	public MapStart(MainFrame mf,hero h){
 		x=0;
 		y=0;

@@ -13,7 +13,7 @@ public class MapToiletHose extends NPC {
 	}
 	
 	public void function(hero h) {
-		if(mainFrame.session==1){
+		if(mainFrame.Missoin==1){
 			JOptionPane.showMessageDialog(null, "Ë®¹Ü»µÁË");
 		}
 		else
