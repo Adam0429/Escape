@@ -6,8 +6,11 @@ import java.awt.event.KeyListener;
 import java.io.Serializable;
 import java.security.spec.DSAGenParameterSpec;
 
+import javax.net.ssl.HostnameVerifier;
 import javax.security.auth.x500.X500Principal;
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 
 import org.omg.CORBA.Current;
 
@@ -62,7 +65,24 @@ public class MyKeyListener implements KeyListener{
 		 if(e.getKeyCode() == KeyEvent.VK_DOWN&&h.x>265&&h.y<489){
 			 if(mf.Current==mf.mapCorridor1){
 				 mf.Current=mf.mapLift;
-				
+			 }
+			 if(mf.Current==mf.mapToilet&&h.x>900&&h.x<1283&&mf.Missoin>1){
+				 int n=JOptionPane.showConfirmDialog(null, "要从这里下去吗?");//是返回0，不是返回1
+				 if(n==0){
+					 new Thread(){
+						 public void run(){
+							 while(h.y<560){
+								 h.y=h.y+3;
+								 try {
+									 sleep(10);
+								 } catch (InterruptedException e) {
+									 e.printStackTrace();
+								 }
+							}
+						 }	 
+					 }.start();
+					 h.img=new ImageIcon(this.getClass().getResource("/picture/nodie.jpeg")).getImage();
+				 }
 			 }
 		 }
 		 

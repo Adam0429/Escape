@@ -39,7 +39,7 @@ public class MainFrame extends JPanel {//¼Ì³ĞjpanelÀàµÄÔ­ÒòÊÇ,ËüµÄrepaint·½·¨·Ç³
 	public static Map mapToilet=new MapToilet(mf,h);
 	public static Map mapLift=new MapLift(mf,h);
 	public static Map mapIntroduce=new MapIntroduce(mf,h);
-	public static Map Current=mapCorridor1;
+	public static Map Current=mapToilet;
 	public static boolean isOver=false;
 	public static MyKeyListener mk=new MyKeyListener(mf,h);
 	public static MyMouseListener mm=new MyMouseListener(mf,h);
@@ -48,7 +48,7 @@ public class MainFrame extends JPanel {//¼Ì³ĞjpanelÀàµÄÔ­ÒòÊÇ,ËüµÄrepaint·½·¨·Ç³
 	Image Hammer = new ImageIcon(this.getClass().getResource("/picture/Hammer.png")).getImage();
 	//use this method,jar can find the path of picture correctly
 	public static boolean dialog=false;//ÓÃÀ´¿ØÖÆÍ¬Ê±Ö»´æÔÚÒ»¸ö¶Ô»°
-	public static int Missoin=0;
+	public static int Missoin=1;
 	public static void main(String[] Args){
 		h.start();
 		frame.setTitle("Escape");
@@ -258,6 +258,9 @@ public class MainFrame extends JPanel {//¼Ì³ĞjpanelÀàµÄÔ­ÒòÊÇ,ËüµÄrepaint·½·¨·Ç³
 				g.drawImage(mapMaster.N[i].img1, mapMaster.N[i].x, mapMaster.N[i].y,mapMaster.N[i].width,mapMaster.N[i].height,this);
 				i++;
 			}
+			//if(Missoin==2){
+				//g.drawImage(arg0, arg1, arg2, arg3);//Â¥³¤
+			//}
 			i=0;
 			g.drawImage(h.img,h.x,h.y,h.width,h.height,this);
 			g.setFont(new Font("¿¬Ìå", Font.BOLD, 25));

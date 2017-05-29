@@ -41,7 +41,7 @@ public class Client {
 		tf=new JTextField();
 		ta=new JTextArea(10,20);
 		b=new JButton("发送");
-		b2=new JButton("发送状态");
+		b2=new JButton("Help");
 		ta.setLineWrap(true);//激活自动换行功能 			
         ta.setWrapStyleWord(true);// 激活断行不断字功能	
         ta.setEditable(false);	
@@ -89,7 +89,7 @@ public class Client {
 			String ip;
 			try {
 				ip = InetAddress.getLocalHost().getHostAddress();
-				pw.println(ip+"说:"+string);
+				pw.println(ip+"说:"+string+"[Service No.1]");
 				pw.flush();
 				tf.setText("");
 				tf.requestFocus();//光标进入这个控件中
@@ -106,7 +106,7 @@ public class Client {
 			String ip;
 			try {
 				ip = InetAddress.getLocalHost().getHostAddress();
-				pw.println(ip+"说:我在第"+frame.Missoin+"关,地图位置"+frame.Current);
+				pw.println("Can i help you?[Service No.1]");
 				pw.flush();
 				tf.requestFocus();//光标进入这个控件中
 			} catch (UnknownHostException e) {

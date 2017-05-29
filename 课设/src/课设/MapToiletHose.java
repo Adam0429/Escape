@@ -15,6 +15,7 @@ public class MapToiletHose extends NPC {
 	public void function(hero h) {
 		if(mainFrame.Missoin==1){
 			JOptionPane.showMessageDialog(null, "水管坏了");
+			mainFrame.Missoin=2;
 		}
 		else
 			JOptionPane.showMessageDialog(null, "水管");

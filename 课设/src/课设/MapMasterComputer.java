@@ -6,8 +6,8 @@ public class MapMasterComputer extends NPC {
 	public MapMasterComputer(){
 		x=230;
 		y=358;
-		width=100;
-		height=100;
+		width=200;
+		height=200;
 	}
 		
 	public void function(hero h) {

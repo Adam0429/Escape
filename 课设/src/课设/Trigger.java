@@ -245,17 +245,24 @@ public class Trigger implements Serializable{
 		if(r.contains(x, y)){
 			if(n instanceof Map1303Computer){
 				mf.Current=mf.mapComputer;
+				n.function(h);
 			}
 			else if(n instanceof Map1304Hammer){
 				mf.map1304.image=mf.map1304.image2;
 				mf.map1304.T[0]=null;
 				mf.Missoin=1;
-			}
-			else if(n instanceof MapToiletHose&&mf.Missoin==1){
-				mf.mapToilet.image=mf.mapToilet.image2;
-				mf.Missoin=2;
-			}
 				n.function(h);
+			}
+			else if(n instanceof MapToiletHose){
+				mf.mapToilet.image=mf.mapToilet.image2;
+				n.function(h);
+			}
+			else if(n instanceof MapMasterComputer){
+				if(mf.Missoin<3)
+					JOptionPane.showMessageDialog(null, "楼长在,不能动");
+				else
+					n.function(h);
+			}
 		}
 	}
 	
