@@ -1,13 +1,20 @@
 package ¿ÎÉè;
 
+import java.applet.Applet;
+import java.applet.AudioClip;
 import java.awt.Button;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Image;
+import java.io.File;
 import java.io.Serializable;
+import java.net.URI;
+import java.net.URL;
 import java.util.Timer;
 import java.util.TimerTask;
+
+import javax.lang.model.util.SimpleElementVisitor6;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -39,7 +46,7 @@ public class MainFrame extends JPanel {//¼Ì³ĞjpanelÀàµÄÔ­ÒòÊÇ,ËüµÄrepaint·½·¨·Ç³
 	public static Map mapToilet=new MapToilet(mf,h);
 	public static Map mapLift=new MapLift(mf,h);
 	public static Map mapIntroduce=new MapIntroduce(mf,h);
-	public static Map Current=mapToilet;
+	public static Map Current=mapStart;
 	public static boolean isOver=false;
 	public static MyKeyListener mk=new MyKeyListener(mf,h);
 	public static MyMouseListener mm=new MyMouseListener(mf,h);
@@ -48,7 +55,7 @@ public class MainFrame extends JPanel {//¼Ì³ĞjpanelÀàµÄÔ­ÒòÊÇ,ËüµÄrepaint·½·¨·Ç³
 	Image Hammer = new ImageIcon(this.getClass().getResource("/picture/Hammer.png")).getImage();
 	//use this method,jar can find the path of picture correctly
 	public static boolean dialog=false;//ÓÃÀ´¿ØÖÆÍ¬Ê±Ö»´æÔÚÒ»¸ö¶Ô»°
-	public static int Missoin=1;
+	public static int Missoin=0;
 	public static void main(String[] Args){
 		h.start();
 		frame.setTitle("Escape");
@@ -62,6 +69,17 @@ public class MainFrame extends JPanel {//¼Ì³ĞjpanelÀàµÄÔ­ÒòÊÇ,ËüµÄrepaint·½·¨·Ç³
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);  
         frame.setLocationRelativeTo(null); 
 		frame.setVisible(true);	
+		new Thread(){
+			public void run(){
+				new Music(1);
+				try {
+					sleep(95000);
+				} catch (InterruptedException e) {
+					e.printStackTrace();
+				}
+				new Music(0);
+			}	
+		}.start();
 		new Thread(){
 		public void run() {
 			int d=1;
@@ -89,9 +107,8 @@ public class MainFrame extends JPanel {//¼Ì³ĞjpanelÀàµÄÔ­ÒòÊÇ,ËüµÄrepaint·½·¨·Ç³
 							if(map1307.N[0].x>600){
 								d=1;
 							}
-						}
-					
-			}
+						}					
+				}
 			}
 		}.start();
 	}

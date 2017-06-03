@@ -89,7 +89,7 @@ public class Client {
 			String ip;
 			try {
 				ip = InetAddress.getLocalHost().getHostAddress();
-				pw.println(ip+"说:"+string+"[Service No.1]");
+				pw.println(ip+"说:"+string+"[Client No.1]");
 				pw.flush();
 				tf.setText("");
 				tf.requestFocus();//光标进入这个控件中
@@ -106,7 +106,7 @@ public class Client {
 			String ip;
 			try {
 				ip = InetAddress.getLocalHost().getHostAddress();
-				pw.println("Can i help you?[Service No.1]");
+				pw.println(InetAddress.getLocalHost().getHostAddress()+"说:I need Help!!!");
 				pw.flush();
 				tf.requestFocus();//光标进入这个控件中
 			} catch (UnknownHostException e) {
