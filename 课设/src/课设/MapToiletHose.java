@@ -13,12 +13,25 @@ public class MapToiletHose extends NPC {
 	}
 	
 	public void function(hero h) {
-		if(mainFrame.Missoin==1){
+		if(mainFrame.Missoin>=1){
 			JOptionPane.showMessageDialog(null, "水管坏了");
 			mainFrame.Missoin=2;
+			mainFrame.mapToilet.image=mainFrame.mapToilet.image2;
+			new Thread(){
+				public void run(){
+					while(mainFrame.mapToilet.N[0].x<500){
+						mainFrame.mapToilet.N[0].x++;
+						try {
+							sleep(5);
+						} catch (InterruptedException e) {
+							e.printStackTrace();
+						}
+					}
+				}
+			}.start();
 		}
 		else
-			JOptionPane.showMessageDialog(null, "水管");
+			JOptionPane.showMessageDialog(null, "逃生成功");
 	}
 
 }

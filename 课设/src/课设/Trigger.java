@@ -253,13 +253,18 @@ public class Trigger implements Serializable{
 				mf.Missoin=1;
 				n.function(h);
 			}
-			else if(n instanceof MapToiletHose){
-				mf.mapToilet.image=mf.mapToilet.image2;
+			else if(n instanceof MapToiletHose){				
 				n.function(h);
 			}
 			else if(n instanceof MapMasterComputer){
-				if(mf.Missoin<3)
+				if(mf.Missoin<2)
 					JOptionPane.showMessageDialog(null, "楼长在,不能动");
+				else
+					n.function(h);
+			}
+			else if(n instanceof MapLiftlift){
+				if(mf.Missoin<3)
+					JOptionPane.showMessageDialog(null, "电梯关闭了");
 				else
 					n.function(h);
 			}

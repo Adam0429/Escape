@@ -84,6 +84,7 @@ public class MainFrame extends JPanel {//¼Ì³ĞjpanelÀàµÄÔ­ÒòÊÇ,ËüµÄrepaint·½·¨·Ç³
 		public void run() {
 			int d=1;
 				while(true){
+					System.out.println(Missoin);
 						while(d==1){
 						map1307.N[0].x--;
 						try {
@@ -271,13 +272,8 @@ public class MainFrame extends JPanel {//¼Ì³ĞjpanelÀàµÄÔ­ÒòÊÇ,ËüµÄrepaint·½·¨·Ç³
 			g.drawImage(Current.image,Current.x,Current.y,Current.width,Current.height,this);
 			g.drawImage(h.stateimage, 0, 0, this);
 			g.drawImage(Help, 0, 50,150,100, this);
-			while(mapMaster.N[i]!=null){
-				g.drawImage(mapMaster.N[i].img1, mapMaster.N[i].x, mapMaster.N[i].y,mapMaster.N[i].width,mapMaster.N[i].height,this);
-				i++;
-			}
-			//if(Missoin==2){
-				//g.drawImage(arg0, arg1, arg2, arg3);//Â¥³¤
-			//}
+			if(Missoin==1)
+				g.drawImage(Current.N[0].img1, Current.N[0].x, Current.N[0].y, Current.N[0].width,Current.N[0].height,this);
 			i=0;
 			g.drawImage(h.img,h.x,h.y,h.width,h.height,this);
 			g.setFont(new Font("¿¬Ìå", Font.BOLD, 25));
@@ -345,6 +341,8 @@ public class MainFrame extends JPanel {//¼Ì³ĞjpanelÀàµÄÔ­ÒòÊÇ,ËüµÄrepaint·½·¨·Ç³
 			g.setColor(Color.BLUE);
 			if(Missoin>0)
 				g.drawImage(Hammer,890,40,150,100,this);
+			if(Missoin>=2)
+				g.drawImage(Current.N[0].img1, Current.N[0].x, Current.N[0].y, Current.N[0].width,Current.N[0].height,this);
 			g.setFont(new Font("»ªÎÄ²ÊÔÆ", Font.BOLD, 25));
 		
 		}

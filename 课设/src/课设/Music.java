@@ -45,7 +45,7 @@ public class Music implements Runnable {
 				is = ClassLoader.getSystemResourceAsStream(url);
 				ais = new AudioStream(is);
 				AudioPlayer.player.start(ais);
-				Thread.sleep(100000);
+				Thread.sleep(95000);
 			}
 		} catch (Exception e) {
 			e.printStackTrace();

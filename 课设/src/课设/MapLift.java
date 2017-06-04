@@ -14,5 +14,6 @@ public class MapLift extends Map{
 		door[1]=new Rectangle(0,0,0,0);	
 		door[2]=new Rectangle(0,0,0,0);	
 		N[0]=new ZXW();
+		T[0]=new MapLiftlift();
 	}
 }
