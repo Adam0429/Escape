@@ -13,8 +13,7 @@ public class MapLiftlift extends NPC {
 		height=500;
 	}
 		
-	public void function(hero h) {
-		
+	public void function(hero h){
 	}
 
 }

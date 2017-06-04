@@ -14,5 +14,6 @@ public class MapCorridor2 extends Map{
 		door[0]=new Rectangle(876,380,120,150);				
 		door[1]=new Rectangle(511,345,150,471);
 		door[2]=new Rectangle(121,343,150,471);
+		N[0]=new SLZ();
 	}
 }

@@ -17,7 +17,7 @@ public class MapMaster extends Map{
 		door[1]=new Rectangle(950,60,150,471);
 		door[2]=new Rectangle(950,60,150,471);
 		N[0]=new Master();
-		T[0]=new MapMasterComputer();
+		T[0]=new MapMasterComputer(mf);
 		
 	}
 }

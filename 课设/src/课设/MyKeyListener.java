@@ -14,6 +14,9 @@ import javax.swing.JOptionPane;
 
 import org.omg.CORBA.Current;
 
+import øŒ…Ë.Read;
+import øŒ…Ë.Save;
+
 public class MyKeyListener implements KeyListener{
 	MainFrame mf;
 	hero h;
@@ -112,11 +115,65 @@ public class MyKeyListener implements KeyListener{
 		 }
 		 if(e.getKeyCode() == KeyEvent.VK_1) {  	
 			 Save s=new Save(mf,h);
-			 System.out.println("¥Êµµ");
+			 s.save();
+			 System.out.println("save file");
 		 }
 		 if(e.getKeyCode() == KeyEvent.VK_0) {  	
-			 Read r=new Read(mf,h);
-			 System.out.println("∂¡µµ");
+			 Read r=new Read();
+			 r.read();
+			/* for(int i=0;i<3;i++)
+			 {
+				 System.out.println(r.number[i]);
+			 }*/
+			 if(r.number[0]==1)
+				{
+					
+					mf.Current=mf.map1303;
+				}
+				else if(r.number[0]==2)
+				{
+					mf.Current = mf.mapCorridor1;
+				}
+				else if(r.number[0]==3)
+				{
+					mf.Current = mf.mapCorridor2;
+				}
+				else if(r.number[0]==4)
+				{
+					mf.Current = mf.map1304;
+				}
+				else if(r.number[0]==5)
+				{
+					mf.Current = mf.map1305;
+				}
+				else if(r.number[0]==6)
+				{
+					mf.Current=mf.map1306;
+				}
+				else if(r.number[0]==7)
+				{
+					mf.Current = mf.map1307;
+				}
+				else if(r.number[0]==8)
+				{
+					mf.Current=mf.map1308;
+				}
+				else if(r.number[0]==9)
+				{
+					mf.Current=mf.mapLift;
+				}
+				else if(r.number[0]==10)
+				{
+					mf.Current = mf.mapMaster;
+				}
+				else if(r.number[0]==11)
+				{
+					mf.Current = mf.mapToilet;
+				}
+			 h.x = r.number[1];
+			 h.y = r.number[2];
+			 mf.Missoin=r.number[3];
+			 System.out.println("read file");
 		 }
 	}
 	public void keyReleased(KeyEvent e) {

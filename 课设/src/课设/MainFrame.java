@@ -46,6 +46,7 @@ public class MainFrame extends JPanel {//¼Ì³ÐjpanelÀàµÄÔ­ÒòÊÇ,ËüµÄrepaint·½·¨·Ç³
 	public static Map mapToilet=new MapToilet(mf,h);
 	public static Map mapLift=new MapLift(mf,h);
 	public static Map mapIntroduce=new MapIntroduce(mf,h);
+	public static Map mapSuc=new MapSuc(mf, h);
 	public static Map Current=mapStart;
 	public static boolean isOver=false;
 	public static MyKeyListener mk=new MyKeyListener(mf,h);
@@ -126,6 +127,9 @@ public class MainFrame extends JPanel {//¼Ì³ÐjpanelÀàµÄÔ­ÒòÊÇ,ËüµÄrepaint·½·¨·Ç³
 		if(Current==mapStart){
 			g.drawImage(Current.image,Current.x,Current.y,Current.width,Current.height,this);	
 		}
+		if(Current==mapSuc){
+			g.drawImage(Current.image,Current.x,Current.y,Current.width,Current.height,this);	
+		}
 		else if(Current==mapIntroduce){
 			g.drawImage(Current.image,Current.x,Current.y,Current.width,Current.height,this);
 		}
@@ -137,8 +141,8 @@ public class MainFrame extends JPanel {//¼Ì³ÐjpanelÀàµÄÔ­ÒòÊÇ,ËüµÄrepaint·½·¨·Ç³
 			//ths map must paint first,or it will cover other picture
 			g.drawImage(h.stateimage, 0, 0, this);
 			g.drawImage(Help, 0, 50,150,100, this);
-			while(map1303.N[i]!=null){
-				g.drawImage(map1303.N[i].img1, map1303.N[i].x, map1303.N[i].y,map1303.N[i].width,map1303.N[i].height,this);
+			while(Current.N[i]!=null){
+				g.drawImage(Current.N[i].img1, Current.N[i].x, Current.N[i].y,Current.N[i].width,Current.N[i].height,this);
 				i++;
 			}
 			i=0;
@@ -168,8 +172,8 @@ public class MainFrame extends JPanel {//¼Ì³ÐjpanelÀàµÄÔ­ÒòÊÇ,ËüµÄrepaint·½·¨·Ç³
 			g.drawImage(Current.image,Current.x,Current.y,Current.width,Current.height,this);
 			g.drawImage(h.stateimage, 0, 0, this);
 			g.drawImage(Help, 0, 50,150,100, this);
-			while(map1304.N[i]!=null){
-				g.drawImage(map1304.N[i].img1, map1304.N[i].x, map1304.N[i].y,map1304.N[i].width,map1304.N[i].height,this);
+			while(Current.N[i]!=null){
+				g.drawImage(Current.N[i].img1, Current.N[i].x, Current.N[i].y,Current.N[i].width,Current.N[i].height,this);
 				i++;
 			}
 			i=0;
@@ -187,8 +191,8 @@ public class MainFrame extends JPanel {//¼Ì³ÐjpanelÀàµÄÔ­ÒòÊÇ,ËüµÄrepaint·½·¨·Ç³
 			g.drawImage(Current.image,Current.x,Current.y,Current.width,Current.height,this);
 			g.drawImage(h.stateimage, 0, 0, this);
 			g.drawImage(Help, 0, 50,150,100, this);
-			while(map1305.N[i]!=null){
-				g.drawImage(map1305.N[i].img1, map1305.N[i].x, map1305.N[i].y,map1305.N[i].width,map1305.N[i].height,this);
+			while(Current.N[i]!=null){
+				g.drawImage(Current.N[i].img1, Current.N[i].x, Current.N[i].y,Current.N[i].width,Current.N[i].height,this);
 				i++;
 			}
 			i=0;
@@ -208,8 +212,8 @@ public class MainFrame extends JPanel {//¼Ì³ÐjpanelÀàµÄÔ­ÒòÊÇ,ËüµÄrepaint·½·¨·Ç³
 			g.drawImage(Current.image,Current.x,Current.y,Current.width,Current.height,this);
 			g.drawImage(h.stateimage, 0, 0, this);
 			g.drawImage(Help, 0, 50,150,100, this);
-			while(map1306.N[i]!=null){
-				g.drawImage(map1306.N[i].img1, map1306.N[i].x, map1306.N[i].y,map1306.N[i].width,map1306.N[i].height,this);
+			while(Current.N[i]!=null){
+				g.drawImage(Current.N[i].img1, Current.N[i].x, Current.N[i].y,Current.N[i].width,Current.N[i].height,this);
 				i++;
 			}
 			i=0;
@@ -230,8 +234,8 @@ public class MainFrame extends JPanel {//¼Ì³ÐjpanelÀàµÄÔ­ÒòÊÇ,ËüµÄrepaint·½·¨·Ç³
 			g.drawImage(Help, 0, 50,150,100, this);
 			g.drawImage(Current.image,Current.x,Current.y,Current.width,Current.height,this);
 			i=0;
-			while(map1307.N[i]!=null){
-				g.drawImage(map1307.N[i].img1, map1307.N[i].x, map1307.N[i].y,map1307.N[i].width,map1307.N[i].height,this);
+			while(Current.N[i]!=null){
+				g.drawImage(Current.N[i].img1, Current.N[i].x, Current.N[i].y,Current.N[i].width,Current.N[i].height,this);
 				i++;
 			}
 			i=0;
@@ -253,8 +257,8 @@ public class MainFrame extends JPanel {//¼Ì³ÐjpanelÀàµÄÔ­ÒòÊÇ,ËüµÄrepaint·½·¨·Ç³
 			
 			g.drawImage(Current.image,Current.x,Current.y,Current.width,Current.height,this);
 			g.drawImage(h.stateimage, 0, 0, this);
-			while(map1308.N[i]!=null){
-				g.drawImage(map1308.N[i].img1, map1308.N[i].x, map1308.N[i].y,map1308.N[i].width,map1308.N[i].height,this);
+			while(Current.N[i]!=null){
+				g.drawImage(Current.N[i].img1, Current.N[i].x, Current.N[i].y,Current.N[i].width,Current.N[i].height,this);
 				i++;
 			}
 			i=0;
@@ -302,6 +306,12 @@ public class MainFrame extends JPanel {//¼Ì³ÐjpanelÀàµÄÔ­ÒòÊÇ,ËüµÄrepaint·½·¨·Ç³
 			g.drawImage(h.stateimage, 0, 0, this);
 			g.drawImage(h.img,h.x,h.y,h.width,h.height,this);
 			g.drawImage(Help, 0, 50,150,100, this);
+			i=0;
+			while(Current.N[i]!=null){
+				g.drawImage(Current.N[i].img1, Current.N[i].x, Current.N[i].y,Current.N[i].width,Current.N[i].height,this);
+				i++;
+			}
+			i=0;
 			g.setColor(Color.BLUE);
 			if(Missoin>0)
 				g.drawImage(Hammer,890,40,150,100,this);
