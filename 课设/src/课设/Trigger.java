@@ -256,6 +256,9 @@ public class Trigger implements Serializable{
 			else if(n instanceof MapToiletHose){				
 				n.function(h);
 			}
+			else if(n instanceof Map1306Box){
+				n.function(h);
+			}
 			else if(n instanceof MapMasterComputer){
 				if(mf.Missoin<2)
 					JOptionPane.showMessageDialog(null, "楼长在,不能动");
