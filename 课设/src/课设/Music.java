@@ -14,10 +14,10 @@ public class Music implements Runnable {
 		this.type = type;
 		switch (type) {
 		case 0: 
-			url = url + "1.wav";
+			url = url + "2.wav";
 			break;
 		case 1: 
-			url = url + "2.wav";
+			url = url + "1.wav";
 			break;
 //		case 2: 
 //			url = url + "levelup.wav";

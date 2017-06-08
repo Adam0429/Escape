@@ -276,7 +276,7 @@ public class MainFrame extends JPanel {//¼Ì³ĞjpanelÀàµÄÔ­ÒòÊÇ,ËüµÄrepaint·½·¨·Ç³
 			g.drawImage(Current.image,Current.x,Current.y,Current.width,Current.height,this);
 			g.drawImage(h.stateimage, 0, 0, this);
 			g.drawImage(Help, 0, 50,150,100, this);
-			if(Missoin==1)
+			if(Missoin<2)
 				g.drawImage(Current.N[0].img1, Current.N[0].x, Current.N[0].y, Current.N[0].width,Current.N[0].height,this);
 			i=0;
 			g.drawImage(h.img,h.x,h.y,h.width,h.height,this);

@@ -31,7 +31,7 @@ public class MapToiletHose extends NPC {
 			}.start();
 		}
 		else
-			JOptionPane.showMessageDialog(null, "逃生成功");
+			JOptionPane.showMessageDialog(null, "水管");
 	}
 
 }

@@ -269,6 +269,7 @@ public class Trigger implements Serializable{
 				if(mf.Missoin<3)
 					JOptionPane.showMessageDialog(null, "µçÌÝ¹Ø±ÕÁË");
 				else
+					
 					mf.Current=mf.mapSuc;
 			}
 		}
